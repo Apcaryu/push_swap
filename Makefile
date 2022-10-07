@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c
+SRCS = main.c swap.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_sawp
 
