@@ -6,8 +6,8 @@ NAME = push_sawp
 
 all : $(NAME)
 
-$(NAME) :
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.c
 	$(CC) -c $^
