@@ -11,4 +11,6 @@
 # include "test.h"
 // ----------------------
 
+void	init_tab(char *list);
+
 # endif
