@@ -8,6 +8,7 @@
 
 // -----lib for test-----
 # include <stdio.h>
+# include "test.h"
 // ----------------------
 
 # endif
