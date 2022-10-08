@@ -7,6 +7,7 @@ NAME = push_sawp
 all : $(NAME)
 
 $(NAME) : $(OBJS)
+	make -C libft/
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.c
@@ -21,4 +22,5 @@ fclean : clean
 re : fclean all
 
 debug : $(OBJS)
+	make -C libft/
 	$(CC) $(OBJS) -o $(NAME)
