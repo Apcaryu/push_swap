@@ -4,4 +4,8 @@
 # include <stdlib.h>
 # include "instruction_set.h"
 
+// -----lib for test-----
+# include <stdio.h>
+// ----------------------
+
 # endif
