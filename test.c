@@ -7,7 +7,7 @@ static void	print_tab(int *tab)
 
 	idx = 0;
 	size_tab = tab_lenght(tab);
-	while (idx < size_tab)
+	while (idx <= size_tab)
 	{
 		printf("pos %u - %d\n", idx, tab[idx]);
 		idx++;
