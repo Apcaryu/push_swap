@@ -11,6 +11,7 @@
 # include "test.h"
 // ----------------------
 
-int	*init_tab(char *list);
+void	is_full_numbers(char *arg);
+int		*init_tab(char *list);
 
 # endif

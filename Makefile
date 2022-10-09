@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c swap.c utils.c init.c
+SRCS = main.c swap.c utils.c init.c checker_args.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_sawp
 T_SRCS = test.c test_instruction_set.c $(SRCS)
