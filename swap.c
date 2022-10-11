@@ -17,3 +17,18 @@ void	swap(int *tab, char heap)
 	}
 	write(1, "ERROR SWAP\n", 11);
 }
+
+void	new_swap(t_tab_ab *tabs, char target)
+{
+	int tmp;
+
+	if (target == 'a')
+	{
+		if (0 < tabs->top_a)
+		{
+			tmp = tabs->tab[tabs->top_a];
+			tabs->tab[tabs->top_a] = tabs->tab[tabs->top_a - 1];
+			tabs->tab[tabs->top_a - 1] = tmp;
+		}
+	}
+}
