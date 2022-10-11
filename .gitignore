@@ -36,6 +36,7 @@
 *.x86_64
 *.hex
 push_swap
+t_push_swap
 
 # Debug files
 *.dSYM/
