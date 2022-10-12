@@ -66,7 +66,6 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	size_list = the_words(argv, ' ');
 	char_list = ft_split(argv, ' ');
 	tabs->tab = char_to_int(char_list, size_list);
-//	tabs->tab[size_list - 1] = SEPARATOR;
 	tabs->size = size_list;
 	tabs->top_a = size_list - 1;
 }
