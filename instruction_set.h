@@ -7,7 +7,7 @@
 
 typedef struct	s_tab_ab
 {
-	long int		*tab;
+	int				*tab;
 	unsigned int	size;
 	unsigned int	top_a;
 }	t_tab_ab;

@@ -11,6 +11,8 @@ int	main(int argc, char *argv[])
 //	test(argc, argv, tab_a, tab_b);
 //	return (0);
 
-	int a = 2147483648;
-	printf("%d\n", a);
+	t_tab_ab tabs;
+
+	new_init_tab(&tabs, argv[1]);
+	init_test(tabs);
 }

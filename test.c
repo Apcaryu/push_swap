@@ -1,6 +1,6 @@
 #include "test.h"
 
-static void	print_tab(int *tab)
+void	print_tab(int *tab)
 {
 	unsigned int	idx;
 	unsigned int	size_tab;
@@ -19,4 +19,15 @@ void	test(int argc, char *argv[], int *tab_a, int *tab_b)
 	print_tab(tab_a);
 	test_swap(tab_a, tab_b);
 	print_tab(tab_a);
+}
+
+void	init_test(t_tab_ab tabs)
+{
+	int idx = 0;
+	while (idx < tabs.size)
+	{
+		printf("%d\n", tabs.tab[idx]);
+		idx++;
+	}
+	printf("pos top a = %u\n", tabs.top_a);
 }
