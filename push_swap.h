@@ -14,4 +14,6 @@
 void	is_full_numbers(char *arg);
 int		*init_tab(char *list);
 
+void	new_init_tab(t_tab_ab *tabs, char *argv);
+
 # endif

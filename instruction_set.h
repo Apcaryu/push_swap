@@ -1,5 +1,6 @@
 #ifndef INSTRUCTION_SET_H
 # define INSTRUCTION_SET_H
+# define SEPARATOR 2147483648
 # include <stdlib.h>
 # include <unistd.h>
 # include "utils.h"

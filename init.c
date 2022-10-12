@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	the_words(char const *s, char c)
+static unsigned int	the_words(char const *s, char c)
 {
 	size_t	size;
 	size_t	idx;
@@ -56,4 +56,17 @@ int	*init_tab(char *list)
 	char_list = ft_split(list, ' ');
 	list_out = char_to_int(char_list, size_list);
 	return (list_out);
+}
+
+void	new_init_tab(t_tab_ab *tabs, char *argv)
+{
+	char	**char_list;
+	unsigned int size_list;
+
+	size_list = the_words(argv, ' ') + 1;
+	char_list = ft_split(argv, ' ');
+	tabs->tab = (long int*)char_to_int(char_list, size_list + 1);
+	tabs->tab[size_list] = SEPARATOR;
+	tabs->size = size_list;
+	tabs->top_a = size_list - 1;
 }
