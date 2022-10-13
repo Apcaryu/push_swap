@@ -31,3 +31,29 @@ void	init_test(t_tab_ab tabs)
 	}
 	printf("pos top a = %u\n", tabs.top_a);
 }
+
+void	new_print_tab(t_tab_ab tabs, char target)
+{
+	int idx;
+
+	idx = 0;
+	if ((target == 'a' || target == 's') && 0xFFFFFFFF != (int)tabs.top_a)
+	{
+		while (idx <= tabs.top_a)
+		{
+			printf("%d\n", tabs.tab[idx]);
+			idx++;
+		}
+		printf("a\n");
+	}
+	if ((target == 'b' || target == 's') && tabs.top_a < tabs.size - 1)
+	{
+		idx = tabs.top_a + 1;
+		while (idx < tabs.size)
+		{
+			printf("%d\n", tabs.tab[idx]);
+			idx++;
+		}
+		printf("b\n");
+	}
+}
