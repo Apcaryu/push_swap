@@ -41,20 +41,20 @@ void	new_print_tab(t_tab_ab tabs, char target)
 	{
 		while (idx <= tabs.top_a)
 		{
-			printf("%d\n", tabs.tab[idx]);
+			printf("\033[35m%d\n", tabs.tab[idx]);
 			idx++;
 		}
-		printf("a\n");
+		printf("\033[35ma\n");
 	}
 	if ((target == 'b' || target == 's') && tabs.top_a < tabs.size - 1)
 	{
 		idx = tabs.top_a + 1;
 		while (idx < tabs.size)
 		{
-			printf("%d\n", tabs.tab[idx]);
+			printf("\033[33m%d\n", tabs.tab[idx]);
 			idx++;
 		}
-		printf("b\n");
+		printf("\033[33mb\n");
 	}
-	printf("------------------------------------------\n");
+	printf("\033[38m------------------------------------------\n");
 }
