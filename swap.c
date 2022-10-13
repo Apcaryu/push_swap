@@ -31,4 +31,13 @@ void	new_swap(t_tab_ab *tabs, char target)
 			tabs->tab[tabs->top_a - 1] = tmp;
 		}
 	}
+	if (target == 'b')
+	{
+		if (2 < tabs->size - tabs->top_a)
+		{
+			tmp = tabs->tab[tabs->top_a + 1];
+			tabs->tab[tabs->top_a + 1] = tabs->tab[tabs->top_a + 2];
+			tabs->tab[tabs->top_a + 2] = tmp;
+		}
+	}
 }
