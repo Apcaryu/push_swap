@@ -56,4 +56,5 @@ void	new_print_tab(t_tab_ab tabs, char target)
 		}
 		printf("b\n");
 	}
+	printf("------------------------------------------\n");
 }

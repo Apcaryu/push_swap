@@ -15,6 +15,12 @@ int	main(int argc, char *argv[])
 
 	new_init_tab(&tabs, argv[1]);
 	init_test(tabs);
-	new_swap(&tabs, 'a');
-	new_print_tab(tabs, 'a');
+	push(&tabs, 'b');
+	push(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	new_swap(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	push(&tabs, 'a');
+	push(&tabs, 'a');
+	new_print_tab(tabs, 's');
 }
