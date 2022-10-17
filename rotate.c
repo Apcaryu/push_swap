@@ -17,14 +17,15 @@ static void	set_bottom_top(t_tab_ab tabs, unsigned int *bottom, unsigned int *to
 void	rotate(t_tab_ab *tabs, char target, char is_reverse)
 {
 	int	tmp;
-	unsigned int	idx;
+	unsigned int	e_idx;
+	unsigned int	s_idx;
 
-	idx = tabs->top_a;
-	tmp = tabs->tab[tabs->top_a];
-	while (0 < idx)
+	set_bottom_top(*tabs, &s_idx, &e_idx, target);
+	tmp = tabs->tab[e_idx];
+	while (s_idx < e_idx)
 	{
-		tabs->tab[idx] = tabs->tab[idx - 1];
-		idx--;
+		tabs->tab[e_idx] = tabs->tab[e_idx - 1];
+		e_idx--;
 	}
-	tabs->tab[0] = tmp;
+	tabs->tab[s_idx] = tmp;
 }
