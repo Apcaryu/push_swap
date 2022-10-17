@@ -27,4 +27,12 @@ int	main(int argc, char *argv[])
 	new_print_tab(tabs, 's');
 	rotate(&tabs, 'a', 1);
 	new_print_tab(tabs, 's');
+	push(&tabs, 'b');
+	push(&tabs, 'b');
+	push(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 'b', 0);
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 'b', 1);
+	new_print_tab(tabs, 's');
 }

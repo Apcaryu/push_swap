@@ -46,7 +46,7 @@ void	new_print_tab(t_tab_ab tabs, char target)
 		}
 		printf("\033[35ma\n");
 	}
-	if ((target == 'b' || target == 's') && tabs.top_a < tabs.size - 1)
+	if ((target == 'b' || target == 's') /*&& tabs.top_a < tabs.size - 1*/)
 	{
 		idx = tabs.top_a + 1;
 		while (idx < tabs.size)

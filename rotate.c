@@ -9,12 +9,14 @@ static void	set_bottom_top(t_tab_ab tabs, unsigned int *bottom, unsigned int *to
 	}
 	else if (target == 'b')
 	{
-		*bottom = tabs.size - 1;
-		*top = tabs.top_a + 1;
+		*bottom = tabs.top_a + 1;
+		*top = tabs.size - 1;
+//		*bottom = tabs.size - 1;
+//		*top = tabs.top_a + 1;
 	}
 }
 
-static void	rotate_right(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
+static void	rotate_inter(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
 {
 	int				tmp;
 
@@ -27,7 +29,7 @@ static void	rotate_right(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
 	tabs->tab[s_idx] = tmp;
 }
 
-static void	rotate_left(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
+static void	rotate_exter(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
 {
 	int	tmp;
 
@@ -48,7 +50,12 @@ void	rotate(t_tab_ab *tabs, char target, char is_reverse)
 
 	set_bottom_top(*tabs, &s_idx, &e_idx, target);
 	if (target == 'a' && !is_reverse)
-		rotate_right(tabs, s_idx, e_idx);
+		rotate_inter(tabs, s_idx, e_idx);
 	if (target == 'a' && is_reverse)
-		rotate_left(tabs, s_idx, e_idx);
+		rotate_exter(tabs, s_idx, e_idx);
+	if	(target == 'b' && !is_reverse)
+		rotate_inter(tabs, s_idx, e_idx);
+	if (target == 'b' && is_reverse)
+		rotate_exter(tabs, s_idx, e_idx);
+
 }
