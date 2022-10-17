@@ -23,4 +23,6 @@ int	main(int argc, char *argv[])
 	push(&tabs, 'a');
 	push(&tabs, 'a');
 	new_print_tab(tabs, 's');
+	rotate(&tabs, 'a', 0);
+	new_print_tab(tabs, 's');
 }
