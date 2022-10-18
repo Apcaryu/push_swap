@@ -50,5 +50,12 @@ int	main(int argc, char *argv[])
 	new_print_tab(tabs, 's');
 	super_rotate(&tabs, 0);
 	new_print_tab(tabs, 's');
-
+	super_rotate(&tabs, 1);
+	new_print_tab(tabs, 's');
+	new_swap(&tabs, 'a');
+	new_print_tab(tabs, 's');
+	push(&tabs, 'a');
+	push(&tabs, 'a');
+	push(&tabs, 'a');
+	new_print_tab(tabs, 's');
 }
