@@ -53,9 +53,9 @@ void	rotate(t_tab_ab *tabs, char target, char is_reverse)
 		rotate_inter(tabs, s_idx, e_idx);
 	if (target == 'a' && is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
-	if	(target == 'b' && !is_reverse)
+	if	(target == 'b' && is_reverse)
 		rotate_inter(tabs, s_idx, e_idx);
-	if (target == 'b' && is_reverse)
+	if (target == 'b' && !is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
 
 }
