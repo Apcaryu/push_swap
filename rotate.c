@@ -59,3 +59,9 @@ void	rotate(t_tab_ab *tabs, char target, char is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
 
 }
+
+void	super_rotate(t_tab_ab *tabs, char is_reverse)
+{
+	rotate(tabs, 'a', is_reverse);
+	rotate(tabs, 'b', is_reverse);
+}

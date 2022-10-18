@@ -16,5 +16,6 @@ void	new_swap(t_tab_ab *tabs, char target);
 void	super_swap(t_tab_ab *tabs);
 void	push(t_tab_ab *tabs, char target);
 void	rotate(t_tab_ab *tabs, char target, char is_reverse);
+void	super_rotate(t_tab_ab *tabs, char is_reverse);
 
 #endif
