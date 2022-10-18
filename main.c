@@ -35,4 +35,6 @@ int	main(int argc, char *argv[])
 	new_print_tab(tabs, 's');
 	rotate(&tabs, 'b', 1);
 	new_print_tab(tabs, 's');
+	super_swap(&tabs);
+	new_print_tab(tabs, 's');
 }

@@ -41,3 +41,9 @@ void	new_swap(t_tab_ab *tabs, char target)
 		}
 	}
 }
+
+void	super_swap(t_tab_ab *tabs)
+{
+	new_swap(tabs, 'a');
+	new_swap(tabs, 'b');
+}
