@@ -35,18 +35,20 @@ void	init_test(t_tab_ab tabs)
 void	new_print_tab(t_tab_ab tabs, char target)
 {
 	int idx;
+	int r_idx;
 
 	idx = 0;
-	if ((target == 'a' || target == 's') && 0xFFFFFFFF != (int)tabs.top_a)
+	r_idx = tabs.top_a;
+	if ((target == 'a' || target == 's'))
 	{
-		while (idx <= tabs.top_a)
+		while (0 <= r_idx)
 		{
-			printf("\033[35m%d\n", tabs.tab[idx]);
-			idx++;
+			printf("\033[35m%d\n", tabs.tab[r_idx]);
+			r_idx--;
 		}
 		printf("\033[35ma\n");
 	}
-	if ((target == 'b' || target == 's') /*&& tabs.top_a < tabs.size - 1*/)
+	if ((target == 'b' || target == 's'))
 	{
 		idx = tabs.top_a + 1;
 		while (idx < tabs.size)
