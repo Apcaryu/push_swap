@@ -33,15 +33,18 @@ static int	*char_to_int(char **list, unsigned int size_list)
 {
 	int 			*list_out;
 	unsigned int	idx;
+	unsigned int	r_idx;
 
 	list_out = ft_calloc(size_list, (sizeof (int)));
 	if (!list_out)
 		return (NULL);
-	idx = size_list - 1;
-	while (0xFFFFFFFF != idx)
+	idx = 0;
+	r_idx = size_list - 1;
+	while (0xFFFFFFFF != r_idx)
 	{
-		list_out[idx] = ft_atoi(list[idx]);
-		idx--;
+		list_out[r_idx] = ft_atoi(list[idx]);
+		r_idx--;
+		idx++;
 	}
 	return (list_out);
 }
