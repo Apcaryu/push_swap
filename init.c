@@ -37,11 +37,11 @@ static int	*char_to_int(char **list, unsigned int size_list)
 	list_out = ft_calloc(size_list, (sizeof (int)));
 	if (!list_out)
 		return (NULL);
-	idx = 0;
-	while (idx < size_list)
+	idx = size_list - 1;
+	while (0xFFFFFFFF != idx)
 	{
 		list_out[idx] = ft_atoi(list[idx]);
-		idx++;
+		idx--;
 	}
 	return (list_out);
 }
