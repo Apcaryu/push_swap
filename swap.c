@@ -29,6 +29,7 @@ void	new_swap(t_tab_ab *tabs, char target)
 			tmp = tabs->tab[tabs->top_a];
 			tabs->tab[tabs->top_a] = tabs->tab[tabs->top_a - 1];
 			tabs->tab[tabs->top_a - 1] = tmp;
+			write(1, "sa\n", 3);
 		}
 	}
 	if (target == 'b')
@@ -38,6 +39,7 @@ void	new_swap(t_tab_ab *tabs, char target)
 			tmp = tabs->tab[tabs->top_a + 1];
 			tabs->tab[tabs->top_a + 1] = tabs->tab[tabs->top_a + 2];
 			tabs->tab[tabs->top_a + 2] = tmp;
+			write(1, "sb\n", 3);
 		}
 	}
 }
