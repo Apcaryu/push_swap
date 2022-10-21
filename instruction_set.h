@@ -11,8 +11,7 @@ typedef struct	s_tab_ab
 	unsigned int	top_a;
 }	t_tab_ab;
 
-void	swap(int *tab, char heap);
-void	new_swap(t_tab_ab *tabs, char target);
+void	swap(t_tab_ab *tabs, char target);
 void	super_swap(t_tab_ab *tabs);
 void	push(t_tab_ab *tabs, char target);
 void	rotate(t_tab_ab *tabs, char target, char is_reverse);

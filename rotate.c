@@ -11,8 +11,6 @@ static void	set_bottom_top(t_tab_ab tabs, unsigned int *bottom, unsigned int *to
 	{
 		*bottom = tabs.top_a + 1;
 		*top = tabs.size - 1;
-//		*bottom = tabs.size - 1;
-//		*top = tabs.top_a + 1;
 	}
 }
 
