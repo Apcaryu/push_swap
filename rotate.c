@@ -50,13 +50,25 @@ void	rotate(t_tab_ab *tabs, char target, char is_reverse)
 
 	set_bottom_top(*tabs, &s_idx, &e_idx, target);
 	if (target == 'a' && !is_reverse)
+	{
 		rotate_inter(tabs, s_idx, e_idx);
+		write(1, "ra\n", 3);
+	}
 	if (target == 'a' && is_reverse)
+	{
 		rotate_exter(tabs, s_idx, e_idx);
+		write(1, "rra\n", 4);
+	}
 	if	(target == 'b' && is_reverse)
+	{
 		rotate_inter(tabs, s_idx, e_idx);
+		write(1, "rrb\n", 4);
+	}
 	if (target == 'b' && !is_reverse)
+	{
 		rotate_exter(tabs, s_idx, e_idx);
+		write(1, "rb\n", 3);
+	}
 
 }
 
