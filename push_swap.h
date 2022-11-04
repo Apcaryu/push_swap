@@ -17,5 +17,6 @@ int		*init_tab(char *list);
 void	new_init_tab(t_tab_ab *tabs, char *argv);
 
 char	check_order(t_tab_ab tabs);
+void	move_or_not(t_tab_ab *tabs);
 
 # endif
