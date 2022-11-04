@@ -15,6 +15,22 @@ char	check_order(t_tab_ab tabs)
 	return (1);
 }
 
+int	get_max(t_tab_ab tabs)
+{
+	int 			val_max;
+	unsigned int	idx;
+
+	val_max = tabs.tab[0];
+	idx = 1;
+	while (idx <= tabs.top_a)
+	{
+	    if (val_max < tabs.tab[idx])
+			val_max = tabs.tab[idx];
+	    idx++;
+	}
+	return (val_max);
+}
+
 void	move_or_not(t_tab_ab *tabs)
 {
 	char do_rotate;
