@@ -31,6 +31,22 @@ int	get_max(t_tab_ab tabs)
 	return (val_max);
 }
 
+int	get_min(t_tab_ab tabs)
+{
+	int 			val_min;
+	unsigned int	idx;
+
+	val_min = tabs.tab[0];
+	idx = 1;
+	while (idx <= tabs.top_a)
+	{
+		if (val_min > tabs.tab[idx])
+			val_min = tabs.tab[idx];
+		idx++;
+	}
+	return (val_min);
+}
+
 void	move_or_not(t_tab_ab *tabs)
 {
 	char do_rotate;
