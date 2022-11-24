@@ -56,3 +56,6 @@ dkms.conf
 # IDE seting
 .idea
 .vscode
+
+# Checker
+checker_linux
