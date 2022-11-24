@@ -7,7 +7,14 @@ int	main(int argc, char *argv[])
 
 	if (is_full_numbers(argv[1]))
 		return (0);
+	if (is_full_space(argv[1]))
+		return (0);
 	new_init_tab(&tabs, argv[1]);
+	if (is_double(tabs))
+	{
+		free(tabs.tab);
+		return (0);
+	}
 //	init_test(tabs);
 
 	move_or_not(&tabs);

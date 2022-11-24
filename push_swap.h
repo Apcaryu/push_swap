@@ -12,6 +12,8 @@
 // ----------------------
 
 int		is_full_numbers(char *arg);
+int		is_full_space(char *arg);
+int 	is_double(t_tab_ab data_tab);
 int		*init_tab(char *list);
 
 void	new_init_tab(t_tab_ab *tabs, char *argv);
