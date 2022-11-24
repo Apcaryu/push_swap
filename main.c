@@ -5,6 +5,8 @@ int	main(int argc, char *argv[])
 
 	t_tab_ab tabs;
 
+	if (is_full_numbers(argv[1]))
+		return (0);
 	new_init_tab(&tabs, argv[1]);
 //	init_test(tabs);
 
