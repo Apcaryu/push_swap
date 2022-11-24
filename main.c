@@ -6,7 +6,7 @@ int	main(int argc, char *argv[])
 	t_tab_ab tabs;
 
 	new_init_tab(&tabs, argv[1]);
-	init_test(tabs);
+//	init_test(tabs);
 
 	move_or_not(&tabs);
 //	if (check_order(tabs) == 0)

@@ -73,5 +73,5 @@ void	move_or_not(t_tab_ab *tabs)
 		if (!check_order(*tabs))
 			rotate(tabs, 'a', 0);
 	}
-	new_print_tab(*tabs, 'a');
+//	new_print_tab(*tabs, 'a');
 }
