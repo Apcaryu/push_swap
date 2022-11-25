@@ -18,6 +18,7 @@ int	main(int argc, char *argv[])
 //	init_test(tabs);
 
 	move_or_not(&tabs);
+	new_print_tab(tabs, 'b');
 //	if (check_order(tabs) == 0)
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
