@@ -14,7 +14,7 @@
 
 typedef struct	s_data_sequence
 {
-	int				*tab_seq;
+	int				start_num;
 	unsigned int	seq_size;
 	unsigned int	idx_better_nb;
 }	t_data_sequence;

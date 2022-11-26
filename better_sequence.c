@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
-/*---------------------------------------------------------------------------*/
-/* recuperer la plus longue suite croissante
+/*-----------------------------------------------------------------------------
+ * recuperer la plus longue suite croissante
  * pour chaque nombre :
  *     faire un tour complet de la stack a pour recuperer la taille de la suite
  *     si la suite actuel est la plus grande
@@ -39,6 +39,31 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 	{
 		data_seq->seq_size = size;
 		data_seq->idx_better_nb = start;
+		data_seq->start_num = data_tabs.tab[start];
+	}
+}
+
+void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
+{
+	unsigned int	nb_push;
+	int				tmp;
+
+	nb_push = 0;
+	while (data_tabs->tab[data_tabs->top_a] != data_sequence.start_num)
+		rotate(data_tabs, 'a', 0);
+	push(data_tabs, 'b');
+	tmp = data_sequence.start_num;
+	nb_push++;
+	while (nb_push < data_sequence.seq_size)
+	{
+		if (tmp < data_tabs->tab[data_tabs->top_a])
+		{
+			tmp = data_tabs->tab[data_tabs->top_a];
+			push(data_tabs, 'b');
+			nb_push++;
+		}
+		else
+			rotate(data_tabs, 'a', 0);
 	}
 }
 
@@ -54,6 +79,7 @@ void	better_sequence(t_tab_ab *data_tabs)
 		sequence_size(*data_tabs, &data_seq, start);
 		start--;
 	}
+	sequence_pusher(data_tabs, data_seq);
 	printf("better_sequence = %u | num_start = %u\n", data_seq.seq_size, data_tabs->tab[data_seq.idx_better_nb]);
 }
 
