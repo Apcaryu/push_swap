@@ -3,6 +3,7 @@
 # define VERSION "0.3.0"
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "libft/libft.h"
 # include "instruction_set.h"
 

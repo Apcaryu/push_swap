@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*
 int	main(int argc, char *argv[])
 {
 
@@ -43,4 +43,4 @@ int	main(int argc, char *argv[])
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
 //		printf("\033[32mis tried\n\033[0m");
-}
+}*/
