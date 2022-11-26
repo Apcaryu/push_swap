@@ -61,6 +61,34 @@ int	*init_tab(char *list)
 	return (list_out);
 }
 
+void	get_max(t_tab_ab *tabs)
+{
+	unsigned int	idx;
+
+	tabs->max = tabs->tab[0];
+	idx = 1;
+	while (idx <= tabs->top_a)
+	{
+		if (tabs->max < tabs->tab[idx])
+			tabs->max = tabs->tab[idx];
+		idx++;
+	}
+}
+
+void	get_min(t_tab_ab *tabs)
+{
+	unsigned int	idx;
+
+	tabs->min = tabs->tab[0];
+	idx = 1;
+	while (idx <= tabs->top_a)
+	{
+		if (tabs->min > tabs->tab[idx])
+			tabs->min = tabs->tab[idx];
+		idx++;
+	}
+}
+
 void	new_init_tab(t_tab_ab *tabs, char *argv)
 {
 	char	**char_list;
@@ -71,4 +99,7 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	tabs->tab = char_to_int(char_list, size_list);
 	tabs->size = size_list;
 	tabs->top_a = size_list - 1;
+	get_min(tabs);
+	get_max(tabs);
+	printf("min = %d | max = %d\n", tabs->min, tabs->max);
 }

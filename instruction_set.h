@@ -9,6 +9,8 @@ typedef struct	s_tab_ab
 	int				*tab;
 	unsigned int	size;
 	unsigned int	top_a;
+	int				min;
+	int 			max;
 }	t_tab_ab;
 
 void	swap(t_tab_ab *tabs, char target);
