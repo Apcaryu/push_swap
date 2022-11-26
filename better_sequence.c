@@ -10,6 +10,13 @@
  *         passer au nombre suivant
  *---------------------------------------------------------------------------*/
 
+void	init_data_sequence(t_data_sequence *data_seq)
+{
+	data_seq->seq_size = 0;
+	data_seq->idx_better_nb = 0;
+	data_seq->start_num = 0;
+}
+
 void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start)
 {
 	unsigned int	idx;
@@ -72,7 +79,7 @@ void	better_sequence(t_tab_ab *data_tabs)
 	t_data_sequence data_seq;
 	unsigned int start;
 
-	data_seq.seq_size = 0;
+	init_data_sequence(&data_seq);
 	start = data_tabs->top_a;
 	while (start < data_tabs->size)
 	{
@@ -80,15 +87,16 @@ void	better_sequence(t_tab_ab *data_tabs)
 		start--;
 	}
 	sequence_pusher(data_tabs, data_seq);
-	printf("better_sequence = %u | num_start = %u\n", data_seq.seq_size, data_tabs->tab[data_seq.idx_better_nb]);
 }
 
 //---------------------Test function of better_sequence.c----------------------
-int main(int argc, char *argv[])
+/*int main(int argc, char *argv[])
 {
 	t_tab_ab tabs;
 
 	new_init_tab(&tabs, argv[1]);
 	better_sequence(&tabs);
 	new_print_tab(tabs, 's');
+	free(tabs.tab);
 }
+*/

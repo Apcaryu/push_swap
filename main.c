@@ -1,5 +1,5 @@
 #include "push_swap.h"
-/*
+
 int	main(int argc, char *argv[])
 {
 
@@ -15,10 +15,11 @@ int	main(int argc, char *argv[])
 		free(tabs.tab);
 		return (0);
 	}
+	better_sequence(&tabs);
 //	init_test(tabs);
 
-	move_or_not(&tabs);
-	new_print_tab(tabs, 'b');
+//	move_or_not(&tabs);
+	new_print_tab(tabs, 's');
 //	if (check_order(tabs) == 0)
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
@@ -43,4 +44,4 @@ int	main(int argc, char *argv[])
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
 //		printf("\033[32mis tried\n\033[0m");
-}*/
+}
