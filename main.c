@@ -6,16 +6,21 @@ int	main(int argc, char *argv[])
 	t_tab_ab tabs;
 
 	if (is_full_numbers(argv[1]))
-		return (0);
+		return (printf("not only number list\n"));
 	if (is_full_space(argv[1]))
-		return (0);
+		return (printf("empty list\n"));
 	new_init_tab(&tabs, argv[1]);
 	if (is_double(tabs))
 	{
 		free(tabs.tab);
-		return (0);
+		return (printf("double presence detected\n"));
 	}
+	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 	better_sequence(&tabs);
+	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
+	new_print_tab(tabs, 's');
+
+	all_in_b(&tabs);
 //	init_test(tabs);
 
 //	move_or_not(&tabs);
