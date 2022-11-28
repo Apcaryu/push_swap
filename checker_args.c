@@ -37,7 +37,7 @@ int is_double(t_tab_ab data_tab)
 	idx = 0;
 	while (idx < data_tab.size)
 	{
-		sub_idx = 0;
+		sub_idx = idx + 1;
 		tmp = data_tab.tab[idx];
 		while (sub_idx < data_tab.size)
 		{
