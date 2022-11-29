@@ -2,6 +2,7 @@
 # define INSTRUCTION_SET_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "utils.h"
 
 typedef struct	s_tab_ab
