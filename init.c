@@ -101,5 +101,5 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	tabs->top_a = size_list - 1;
 	get_min(tabs);
 	get_max(tabs);
-	printf("min = %d | max = %d\n", tabs->min, tabs->max);
+//	printf("min = %d | max = %d\n", tabs->min, tabs->max);
 }

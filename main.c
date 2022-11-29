@@ -15,18 +15,18 @@ int	main(int argc, char *argv[])
 		free(tabs.tab);
 		return (printf("double presence detected\n"));
 	}
-	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
+//	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 	better_sequence(&tabs);
-	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
-	new_print_tab(tabs, 's');
+//	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
+//	new_print_tab(tabs, 's');
 
 	all_in_b(&tabs);
 //	init_test(tabs);
 
 //	move_or_not(&tabs);
-	new_print_tab(tabs, 's');
+//	new_print_tab(tabs, 's');
 	all_in_a(&tabs);
-	new_print_tab(tabs, 's');
+//	new_print_tab(tabs, 's');
 //	if (check_order(tabs) == 0)
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
