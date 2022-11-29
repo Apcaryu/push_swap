@@ -29,7 +29,7 @@ fclean : clean
 
 re : fclean all
 
-debug : $(T_OBJS)
+debug : fclean $(T_OBJS)
 	make -C libft bonus
 	$(CC) -D IS_TEST=1 $(T_OBJS) libft/libft.a -o $(T_NAME)
 	make -C libft clean
