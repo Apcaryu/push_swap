@@ -10,6 +10,14 @@ void	all_in_b(t_tab_ab *data_tabs)
 		if (data_tabs->tab[data_tabs->top_a] < data_tabs->tab[data_tabs->size - 1] \
  		&& data_tabs->tab[data_tabs->top_a] > data_tabs->tab[data_tabs->top_a + 1])
 			push(data_tabs, 'b');
+		else if (data_tabs->tab[data_tabs->top_a] == data_tabs->min)
+		{
+//			printf("top_a = %d | min = %d\n", data_tabs->tab[data_tabs->top_a], data_tabs->min);
+			if (data_tabs->tab[0] == data_tabs->min)
+				return;
+			else
+				rotate(data_tabs, 'a', 0);
+		}
 		else
 			rotate(data_tabs, 'b', 0);
 	}
