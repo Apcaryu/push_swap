@@ -15,6 +15,8 @@
 typedef struct	s_data_sequence
 {
 	int				start_num;
+	int				min;
+	int				tmp;
 	unsigned int	seq_size;
 	unsigned int	idx_better_nb;
 }	t_data_sequence;
