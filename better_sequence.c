@@ -31,6 +31,20 @@ void	copy_tab(t_data_sequence *data_seq)
 	}
 }
 
+t_bool	is_in_sequence(int number, t_data_sequence data_seq)
+{
+	unsigned int	idx;
+
+	idx = 0;
+	while (idx < data_seq.seq_size)
+	{
+		if (number == data_seq.seq_list[idx])
+			return (true);
+		idx++;
+	}
+	return (false);
+}
+
 void	print_s_list(t_data_sequence data_seq, unsigned int size) // TODO remove
 {
 	int idx;
@@ -114,19 +128,26 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 {
 	unsigned int	nb_push;
+	unsigned int	max_push;
 	int				tmp;
 
 	nb_push = 0;
-	while (data_tabs->tab[data_tabs->top_a] != data_sequence.start_num)
-		rotate(data_tabs, 'a', 0);
-	push(data_tabs, 'b');
+//	while (data_tabs->tab[data_tabs->top_a] != data_sequence.start_num)
+//		rotate(data_tabs, 'a', 0);
+//	push(data_tabs, 'b');
 	tmp = data_sequence.start_num;
-	nb_push++;
-	while (nb_push < data_sequence.seq_size)
+	max_push = data_tabs->size - data_sequence.seq_size;
+//	nb_push++;
+	while (nb_push < max_push/*data_sequence.seq_size*/)
 	{
-		if (tmp < data_tabs->tab[data_tabs->top_a])
+//		if (tmp < data_tabs->tab[data_tabs->top_a])
+//		{
+//			tmp = data_tabs->tab[data_tabs->top_a];
+//			push(data_tabs, 'b');
+//			nb_push++;
+//		}
+		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], data_sequence) == false)
 		{
-			tmp = data_tabs->tab[data_tabs->top_a];
 			push(data_tabs, 'b');
 			nb_push++;
 		}
@@ -149,7 +170,9 @@ void	better_sequence(t_tab_ab *data_tabs)
 		start--;
 	}
 	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO TODO remove
-//	sequence_pusher(data_tabs, data_seq);
+	new_print_tab(*data_tabs, 's');
+	sequence_pusher(data_tabs, data_seq);
+	new_print_tab(*data_tabs, 's');
 }
 
 //---------------------Test function of better_sequence.c----------------------
