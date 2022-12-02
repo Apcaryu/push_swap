@@ -16,7 +16,7 @@ void	init_data_sequence(t_data_sequence *data_seq)
 	data_seq->idx_better_nb = 0;
 	data_seq->start_num = 0;
 }
-
+/*
 unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start, unsigned int	idx)
 {
 	unsigned int	size;
@@ -43,34 +43,35 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 		idx--;
 	}
 	return (size);
-}
+}*/
 
 void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start)
 {
 	unsigned int	idx;
 	unsigned int	size;
+	int				tmp;
 	
 	idx = start;
 	size = 1;
 	if (data_tabs.size < idx)
 	    idx = data_tabs.top_a;
-	data_seq->min = data_tabs.tab[idx];
-	data_seq->tmp = data_tabs.tab[idx];
+//	data_seq->min = data_tabs.tab[idx];
+	tmp = data_tabs.tab[idx];
 	idx--;
-	size = size_pp(data_tabs, data_seq, start, idx);
-//	while (idx != start)
-//	{
-//		if (data_tabs.size < idx)
-//			idx = data_tabs.top_a;
-//		if (tmp < data_tabs.tab[idx])
-//		{
-//			tmp = data_tabs.tab[idx];
-//			size++;
-//		}
-//		if (idx == start)
-//			break;
-//		idx--;
-//	}
+//	size = size_pp(data_tabs, data_seq, start, idx);
+	while (idx != start)
+	{
+		if (data_tabs.size < idx)
+			idx = data_tabs.top_a;
+		if (tmp < data_tabs.tab[idx])
+		{
+			tmp = data_tabs.tab[idx];
+			size++;
+		}
+		if (idx == start)
+			break;
+		idx--;
+	}
 	if (data_seq->seq_size < size)
 	{
 		data_seq->seq_size = size;
@@ -116,8 +117,8 @@ void	better_sequence(t_tab_ab *data_tabs)
 		sequence_size(*data_tabs, &data_seq, start);
 		start--;
 	}
-	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO
-//	sequence_pusher(data_tabs, data_seq);
+//	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO
+	sequence_pusher(data_tabs, data_seq);
 }
 
 //---------------------Test function of better_sequence.c----------------------
