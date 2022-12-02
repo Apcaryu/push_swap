@@ -14,6 +14,8 @@
 
 typedef struct	s_data_sequence
 {
+	int 			*seq_list;
+	int 			*tmp_list;
 	int				start_num;
 	int				min;
 	int				tmp;
