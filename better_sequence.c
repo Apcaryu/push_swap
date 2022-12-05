@@ -169,10 +169,10 @@ void	better_sequence(t_tab_ab *data_tabs)
 		sequence_size(*data_tabs, &data_seq, start);
 		start--;
 	}
-	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO TODO remove
-	new_print_tab(*data_tabs, 's');
+//	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO TODO remove
+//	new_print_tab(*data_tabs, 's'); // TODO remove
 	sequence_pusher(data_tabs, data_seq);
-	new_print_tab(*data_tabs, 's');
+//	new_print_tab(*data_tabs, 's'); // TODO remove
 }
 
 //---------------------Test function of better_sequence.c----------------------

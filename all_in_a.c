@@ -1,11 +1,51 @@
 #include "push_swap.h"
 
+void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
+{
+	unsigned int	idx;
+
+	idx = 0;
+	while (idx < data_tabs.size)
+	{
+		if (idx <= data_tabs.top_a) {
+			if (data_tabs.tab[idx] < mm_ab->min_a)
+				mm_ab->min_a = data_tabs.tab[idx];
+		}
+		else if (data_tabs.top_a < idx) {
+			if (data_tabs.tab[idx] < mm_ab->min_b)
+				mm_ab->min_b = data_tabs.tab[idx];
+		}
+		idx++;
+	}
+	idx = 0;
+	while (idx < data_tabs.size)
+	{
+		if (idx <= data_tabs.top_a) {
+			if (data_tabs.tab[idx] > mm_ab->max_a)
+				mm_ab->max_a = data_tabs.tab[idx];
+		}
+		else if (data_tabs.top_a < idx) {
+			if (data_tabs.tab[idx] > mm_ab->max_b)
+				mm_ab->max_b = data_tabs.tab[idx];
+		}
+		idx++;
+	}
+}
+
 void	all_in_a(t_tab_ab *data_tabs)
 {
-	while (data_tabs->tab[data_tabs->top_a + 1] != data_tabs->max)
-		rotate(data_tabs, 'b', 0);
-	while (data_tabs->top_a < data_tabs->size - 1 || data_tabs->top_a == UINT_MAX)
-		push(data_tabs, 'a');
-	if (data_tabs->tab[0] == data_tabs->min)
-		rotate(data_tabs, 'a', 1);
+	t_min_max_ab mm_ab;
+
+	mm_ab.min_a = INT_MAX;
+	mm_ab.max_a = INT_MIN;
+	mm_ab.min_b = INT_MAX;
+	mm_ab.max_b = INT_MIN;
+	set_min_max(*data_tabs, &mm_ab);
+	printf("ma = %d Ma = %d | mb = %d Mb = %d\n", mm_ab.min_a, mm_ab.max_a, mm_ab.min_b, mm_ab.max_b);
+//	while (data_tabs->tab[data_tabs->top_a + 1] != data_tabs->max)
+//		rotate(data_tabs, 'b', 0);
+//	while (data_tabs->top_a < data_tabs->size - 1 || data_tabs->top_a == UINT_MAX)
+//		push(data_tabs, 'a');
+//	if (data_tabs->tab[0] == data_tabs->min)
+//		rotate(data_tabs, 'a', 1);
 }

@@ -23,6 +23,14 @@ typedef struct	s_data_sequence
 	unsigned int	idx_better_nb;
 }	t_data_sequence;
 
+typedef struct s_min_max_ab
+{
+	int	min_a;
+	int max_a;
+	int min_b;
+	int max_b;
+}	t_min_max_ab;
+
 int		is_full_numbers(char *arg);
 int		is_full_space(char *arg);
 int 	is_double(t_tab_ab data_tab);
