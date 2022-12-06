@@ -43,6 +43,7 @@ void	move_or_not(t_tab_ab *tabs);
 
 void	better_sequence(t_tab_ab *data_tabs);
 void	all_in_b(t_tab_ab *data_tabs);
+t_bool	numbers_moves(t_tab_ab data_tabs);
 void	all_in_a(t_tab_ab *data_tabs);
 void	final_rotate(t_tab_ab *data_tabs);
 

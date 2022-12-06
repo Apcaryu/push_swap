@@ -56,6 +56,7 @@ t_bool check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 void	all_in_a(t_tab_ab *data_tabs)
 {
 	t_min_max_ab mm_ab;
+	t_bool		is_reverse;
 
 	mm_ab.min_a = INT_MAX;
 	mm_ab.max_a = INT_MIN;
@@ -67,9 +68,10 @@ void	all_in_a(t_tab_ab *data_tabs)
 	while (data_tabs->top_a < data_tabs->size - 1)
 	{
 //		new_print_tab(*data_tabs, 's'); // TODO remove
+		is_reverse = numbers_moves(*data_tabs);
 		if (check_push_in_a(*data_tabs, &mm_ab))
 			push(data_tabs, 'a');
 		else
-			rotate(data_tabs, 'a', 0);
+			rotate(data_tabs, 'a', is_reverse);
 	}
 }
