@@ -149,6 +149,10 @@ void	better_sequence(t_tab_ab *data_tabs)
 //	new_print_tab(*data_tabs, 's'); // TODO remove
 	sequence_pusher(data_tabs, data_seq);
 //	new_print_tab(*data_tabs, 's'); // TODO remove
+	if (data_seq.seq_list)
+		free(data_seq.seq_list);
+	if (data_seq.tmp_list)
+		free(data_seq.tmp_list);
 }
 
 //---------------------Test function of better_sequence.c----------------------

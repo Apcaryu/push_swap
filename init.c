@@ -89,6 +89,19 @@ void	get_min(t_tab_ab *tabs)
 	}
 }
 
+static void	freezer(char **tab)
+{
+	size_t	idx;
+
+	idx = 0;
+	while (tab[idx] != NULL)
+	{
+		free(tab[idx]);
+		idx++;
+	}
+	free(tab);
+}
+
 void	new_init_tab(t_tab_ab *tabs, char *argv)
 {
 	char	**char_list;
@@ -101,5 +114,6 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	tabs->top_a = size_list - 1;
 	get_min(tabs);
 	get_max(tabs);
+	freezer(char_list);
 //	printf("min = %d | max = %d\n", tabs->min, tabs->max);
 }
