@@ -56,7 +56,7 @@ void	all_in_a(t_tab_ab *data_tabs)
 	mm_ab.min_b = INT_MAX;
 	mm_ab.max_b = INT_MIN;
 	set_min_max(*data_tabs, &mm_ab);
-	printf("ma = %d Ma = %d | mb = %d Mb = %d\n", mm_ab.min_a, mm_ab.max_a, mm_ab.min_b, mm_ab.max_b);
+//	printf("ma = %d Ma = %d | mb = %d Mb = %d\n", mm_ab.min_a, mm_ab.max_a, mm_ab.min_b, mm_ab.max_b);
 //	printf("push? %d\n", check_push_in_a(*data_tabs, &mm_ab));
 	while (data_tabs->top_a < data_tabs->size - 1)
 	{

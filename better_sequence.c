@@ -62,7 +62,7 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 	unsigned int	size;
 
 	size = 1;
-	printf("idx = %u | start = %u\n", idx, start); //OK TODO remove
+//	printf("idx = %u | start = %u\n", idx, start); //OK TODO remove
 	while (idx != start)
 	{
 		if (data_tabs.size < idx)
