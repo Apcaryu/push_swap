@@ -91,7 +91,6 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 {
 	unsigned int	idx;
 	unsigned int	size;
-//	int				tmp;
 	
 	idx = start;
 	size = 1;
@@ -99,22 +98,8 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 	    idx = data_tabs.top_a;
 	data_seq->min = data_tabs.tab[idx];
 	data_seq->tmp_list[0] = data_tabs.tab[idx];
-//	tmp = data_tabs.tab[idx];
 	idx--;
 	size = size_pp(data_tabs, data_seq, start, idx);
-//	while (idx != start)
-//	{
-//		if (data_tabs.size < idx)
-//			idx = data_tabs.top_a;
-//		if (tmp < data_tabs.tab[idx])
-//		{
-//			tmp = data_tabs.tab[idx];
-//			size++;
-//		}
-//		if (idx == start)
-//			break;
-//		idx--;
-//	}
 	if (data_seq->seq_size < size)
 	{
 		data_seq->seq_size = size;
@@ -129,23 +114,11 @@ void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 {
 	unsigned int	nb_push;
 	unsigned int	max_push;
-	int				tmp;
 
 	nb_push = 0;
-//	while (data_tabs->tab[data_tabs->top_a] != data_sequence.start_num)
-//		rotate(data_tabs, 'a', 0);
-//	push(data_tabs, 'b');
-	tmp = data_sequence.start_num;
 	max_push = data_tabs->size - data_sequence.seq_size;
-//	nb_push++;
-	while (nb_push < max_push/*data_sequence.seq_size*/)
+	while (nb_push < max_push)
 	{
-//		if (tmp < data_tabs->tab[data_tabs->top_a])
-//		{
-//			tmp = data_tabs->tab[data_tabs->top_a];
-//			push(data_tabs, 'b');
-//			nb_push++;
-//		}
 		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], data_sequence) == false)
 		{
 			if (data_tabs->tab[data_tabs->top_a] < data_tabs->tab[data_tabs->top_a - 1] \
@@ -167,13 +140,12 @@ void	better_sequence(t_tab_ab *data_tabs)
 
 	init_data_sequence(&data_seq, *data_tabs);
 	start = data_tabs->top_a;
-//	sequence_size(*data_tabs, &data_seq, start);
 	while (start < data_tabs->size)
 	{
 		sequence_size(*data_tabs, &data_seq, start);
 		start--;
 	}
-//	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // KO TODO remove
+//	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // OK TODO remove
 //	new_print_tab(*data_tabs, 's'); // TODO remove
 	sequence_pusher(data_tabs, data_seq);
 //	new_print_tab(*data_tabs, 's'); // TODO remove
