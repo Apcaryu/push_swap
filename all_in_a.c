@@ -44,7 +44,8 @@ t_bool check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 		mm_ab->max_a = data_tabs.tab[data_tabs.top_a + 1];
 		return (true);
 	}
-	else if (data_tabs.tab[data_tabs.top_a] == mm_ab->min_a && data_tabs.tab[data_tabs.top_a + 1] < mm_ab->min_a)
+	else if (data_tabs.tab[data_tabs.top_a] == mm_ab->min_a && \
+	(data_tabs.tab[data_tabs.top_a + 1] < mm_ab->min_a && data_tabs.tab[data_tabs.top_a]))
 	{
 		mm_ab->min_a = data_tabs.tab[data_tabs.top_a + 1];
 		return (true);
@@ -65,6 +66,7 @@ void	all_in_a(t_tab_ab *data_tabs)
 //	printf("push? %d\n", check_push_in_a(*data_tabs, &mm_ab));
 	while (data_tabs->top_a < data_tabs->size - 1)
 	{
+//		new_print_tab(*data_tabs, 's');
 		if (check_push_in_a(*data_tabs, &mm_ab))
 			push(data_tabs, 'a');
 		else

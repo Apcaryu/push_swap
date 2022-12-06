@@ -76,12 +76,12 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 		}
 		else if (data_seq->tmp_list[size - 1] < data_tabs.tab[idx])
 		{
-			if (2 <= size)
-			    data_seq->min = data_seq->tmp_list[size - 2];
 			data_seq->tmp_list[size] = data_tabs.tab[idx];
 			size++;
+			if (2 <= size)
+				data_seq->min = data_seq->tmp_list[size - 2];
 		}
-//		printf("size = %u | min = %d | tmp = %d\n", data_seq->seq_size, data_seq->min, data_seq->tmp); // TODO remove
+//		printf("size = %u | min = %d | tmp = %d\n", size, data_seq->min, data_seq->tmp); // TODO remove
 		idx--;
 	}
 	return (size);
@@ -148,7 +148,11 @@ void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 //		}
 		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], data_sequence) == false)
 		{
-			push(data_tabs, 'b');
+			if (data_tabs->tab[data_tabs->top_a] < data_tabs->tab[data_tabs->top_a - 1] \
+			&& data_tabs->tab[data_tabs->top_a] > data_tabs->tab[0])
+				rotate(data_tabs, 'a', 0);
+			else
+				push(data_tabs, 'b');
 			nb_push++;
 		}
 		else
