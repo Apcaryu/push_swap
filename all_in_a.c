@@ -44,6 +44,11 @@ t_bool check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 		mm_ab->max_a = data_tabs.tab[data_tabs.top_a + 1];
 		return (true);
 	}
+	else if (data_tabs.tab[data_tabs.top_a] == mm_ab->min_a && data_tabs.tab[data_tabs.top_a + 1] < mm_ab->min_a)
+	{
+		mm_ab->min_a = data_tabs.tab[data_tabs.top_a + 1];
+		return (true);
+	}
 	return (false);
 }
 
