@@ -121,11 +121,7 @@ void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 	{
 		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], data_sequence) == false)
 		{
-			if (data_tabs->tab[data_tabs->top_a] < data_tabs->tab[data_tabs->top_a - 1] \
-			&& data_tabs->tab[data_tabs->top_a] > data_tabs->tab[0])
-				rotate(data_tabs, 'a', 0);
-			else
-				push(data_tabs, 'b');
+			push(data_tabs, 'b');
 			nb_push++;
 		}
 		else
@@ -148,7 +144,8 @@ void	better_sequence(t_tab_ab *data_tabs)
 //	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // OK TODO remove
 //	new_print_tab(*data_tabs, 's'); // TODO remove
 	sequence_pusher(data_tabs, data_seq);
-//	new_print_tab(*data_tabs, 's'); // TODO remove
+	// print_s_list(data_seq, data_seq.seq_size);
+	// new_print_tab(*data_tabs, 'b'); // TODO remove
 	if (data_seq.seq_list)
 		free(data_seq.seq_list);
 	if (data_seq.tmp_list)
