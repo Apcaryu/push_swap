@@ -14,6 +14,14 @@ typedef struct	s_tab_ab
 	int 			max;
 }	t_tab_ab;
 
+typedef struct	s_data_dist
+{
+	unsigned int	dist;
+	unsigned int	idx;
+	int				num;
+}	t_data_dist;
+
+
 void	swap(t_tab_ab *tabs, char target);
 void	super_swap(t_tab_ab *tabs);
 void	push(t_tab_ab *tabs, char target);
