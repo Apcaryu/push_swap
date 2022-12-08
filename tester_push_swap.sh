@@ -15,7 +15,7 @@ then
   echo "\033[33m3 numbers test\033[0m"
   ARG="3 2 1"
   nb_moves=$(./t_push_swap $ARG | wc -l);
-  if [[ 3 < $(($nb_moves)) ]]
+  if [[ 3 -lt $nb_moves ]]
   then
     echo "\033[31mToo many moves. | moves = $nb_moves\033[0m"
   else
@@ -34,7 +34,7 @@ then
   echo "\033[33m5 numbers test\033[0m"
   ARG="5 4 3 2 1"
     nb_moves=$(./t_push_swap $ARG | wc -l);
-    if [[ 12 < $(($nb_moves)) ]]
+    if [[ 12 -lt $nb_moves ]]
     then
       echo "\033[31mToo many moves. | moves = $nb_moves\033[0m"
     else
@@ -58,7 +58,7 @@ then
   737 961 72 529 844 52 996 768 741 788 505 210 950 626 659 459 71 881 18 \
   572 136 584 909 349 908 412"
   nb_moves=$(./t_push_swap $ARG | wc -l);
-  if [[ 1500 < $(($nb_moves)) ]]
+  if [[ 1500 -lt $nb_moves ]]
   then
     echo "\033[31mToo many moves. | moves = $nb_moves\033[0m"
   else
@@ -77,7 +77,7 @@ then
   echo "\033[33m500 numbers test\033[0m"
   ARG=$(cat "500.txt")
   nb_moves=$(./t_push_swap $ARG | wc -l);
-  if [[ 11500 < $((nb_moves)) ]]
+  if [[ 11500 -lt $nb_moves ]]
   then
     echo "\033[31mToo many moves. | moves = $nb_moves\033[0m"
   else
