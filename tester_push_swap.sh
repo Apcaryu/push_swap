@@ -74,7 +74,22 @@ then
 fi
 if [[ $test_mod == 4 ]] || [[ $test_mod == 0 ]]
 then
-  echo "500 numbers test"
+  echo "\033[33m500 numbers test\033[0m"
+  ARG=$(cat "500.txt")
+  nb_moves=$(./t_push_swap $ARG | wc -l);
+  if [[ 11500 < $((nb_moves)) ]]
+  then
+    echo "\033[31mToo many moves. | moves = $nb_moves\033[0m"
+  else
+    echo "\033[32mGood moves numbers | moves = $nb_moves\033[0m"
+  fi
+  is_sort=$(./t_push_swap $ARG | ./checker_linux $ARG)
+  if [[ 'OK' == $is_sort ]]
+  then
+    echo "\033[32mList sorted! 👍\033[0m"
+  else
+    echo "\033[31mNot sorted\033[0m"
+  fi
 fi
 if [[ $test_mod == 5 ]]
 then
