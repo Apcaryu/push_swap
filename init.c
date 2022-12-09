@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+void    init_data_dist(t_data_dist *data_dist)
+{
+	data_dist->dist = UINT_MAX;
+	data_dist->num = 0;
+	data_dist->idx = UINT_MAX;
+	data_dist->reverse_a;
+	data_dist->reverse_b;
+}
+
 static unsigned int	the_words(char const *s, char c)
 {
 	size_t	size;
