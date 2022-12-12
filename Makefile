@@ -9,7 +9,7 @@ T_SRCS = test.c test_instruction_set.c $(SRCS)
 T_OBJS = $(T_SRCS:.c=.o)
 T_NAME = t_push_swap
 
-all : $(NAME)
+all : $(NAME) thanks
 
 $(NAME) : $(OBJS)
 	make -C libft bonus
@@ -30,7 +30,13 @@ fclean : clean
 
 re : fclean all
 
-debug : fclean $(T_OBJS)
-	make -C libft bonus
+debug : $(T_NAME) thanks
+
+$(T_NAME) : fclean $(T_OBJS)
+	make -C libft
 	$(CC) -D IS_TEST=1 $(T_OBJS) libft/libft.a -o $(T_NAME)
-	make -C libft clean
+
+thanks :
+	@echo "\033[40m\033[37m\e[1mThanks to:\033[0m"
+	@echo "\033[36mpgros aka Perrine"
+	@echo "\033[36mmaitre de l'evasion sleleu aka Sebastien\033[0m"
