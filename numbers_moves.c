@@ -36,14 +36,14 @@ t_bool	is_top_b(t_tab_ab data_tabs, t_data_dist data_dist, unsigned int idx)
 		return (false);
 }
 
-unsigned int	set_dist_b(t_tab_ab data_tab, t_data_dist data_dist, unsigned int idx)
+unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, unsigned int idx)
 {
 	unsigned int	dist_b;
 
 	dist_b = 0;
 	while (idx > data_tab.top_a && idx < data_tab.size)
 	{
-		if (data_dist.reverse_b == false)
+		if (reverse_b == false)
 		{
 			dist_b++;
 			idx--;
@@ -86,11 +86,12 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 	unsigned int	dist;
 	unsigned int	dist_a;
 	unsigned int	dist_b;
+	t_bool			reverse_b;
 
-	data_dist->reverse_b = !is_top_b(data_tabs, *data_dist, nb_pos);
+	reverse_b = !is_top_b(data_tabs, *data_dist, nb_pos);
 	idx = data_tabs.top_a;
 	dist = 0;
-	dist_b = set_dist_b(data_tabs, *data_dist, nb_pos);
+	dist_b = set_dist_b(data_tabs, reverse_b, nb_pos);
 	while (idx != UINT_MAX)
 	{
 		if (check_where(data_tabs, mm_ab, data_tabs.tab[nb_pos], idx))
@@ -104,9 +105,10 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 		data_dist->dist = dist;
 		data_dist->idx = nb_pos;
 		data_dist->num = data_tabs.tab[data_dist->idx];
+		data_dist->reverse_b = reverse_b;
 	}
 	new_print_tab(data_tabs, 's');
-	printf("dist_b = %u | reverse_b = %d | nb = %d\n", dist_b, data_dist->reverse_b, data_tabs.tab[nb_pos]); // TODO remove
+	printf("dist_b = %u | reverse_b = %d | nb = %d\n", dist_b, /*data_dist->*/reverse_b, data_tabs.tab[nb_pos]); // TODO remove
 	sleep(2);
 }
 
