@@ -34,8 +34,21 @@ int	main(int argc, char *argv[])
 		free(tabs.tab);
 		return (printf("double presence detected\n"));
 	}
+	push(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	push(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	swap(&tabs, 'b');
+	new_print_tab(tabs, 's');
+	swap(&tabs, 's');
+	new_print_tab(tabs, 's');
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
+/*
 	better_sequence(&tabs);
+	all_in_a(&tabs);
+	final_rotate(&tabs);
+	free(tabs.tab);
+	*/
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 //	new_print_tab(tabs, 's');
 
@@ -44,11 +57,8 @@ int	main(int argc, char *argv[])
 
 //	move_or_not(&tabs);
 //	new_print_tab(tabs, 's');
-	all_in_a(&tabs);
-	final_rotate(&tabs);
 //	new_print_tab(tabs, 's');
 //	printf("list is sorted : %u", is_sorted(tabs));
-	free(tabs.tab);
 //	if (check_order(tabs) == 0)
 //		printf("\033[34mis not tried\n\033[0m");
 //	else
