@@ -40,38 +40,38 @@ static void	rotate_exter(t_tab_ab *tabs, unsigned int s_idx, unsigned int e_idx)
 	tabs->tab[e_idx] = tmp;
 }
 
-void	rotate(t_tab_ab *tabs, char target, char is_reverse)
+void	rotate_printer(char target, t_bool is_reverse)
 {
-	int	tmp;
+	if (target == 'a' && !is_reverse)
+		write(1, "ra\n", 3);
+	else if (target == 'a' && is_reverse)
+		write(1, "rra\n", 4);
+	else if (target == 'b' && !is_reverse)
+		write(1, "rb\n", 3);
+	else if (target == 'b' && is_reverse)
+		write(1, "rrb\n", 4);
+	else if (target == 's' && !is_reverse)
+		write(1, "rr\n", 3);
+	else if (target == 's' && is_reverse)
+		write(1, "rrr\n", 4);
+}
+
+void	rotate(t_tab_ab *tabs, char target, t_bool is_reverse)
+{
 	unsigned int	e_idx;
 	unsigned int	s_idx;
 
-	set_bottom_top(*tabs, &s_idx, &e_idx, target);
-	if (target == 'a' && !is_reverse)
-	{
+	if (target == 'a' || target == 's')
+		set_bottom_top(*tabs, &s_idx, &e_idx, 'a');
+	if ((target == 'a' || target == 's') && !is_reverse)
 		rotate_inter(tabs, s_idx, e_idx);
-		write(1, "ra\n", 3);
-	}
-	if (target == 'a' && is_reverse)
-	{
+	if ((target == 'a' || target == 's') && is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
-		write(1, "rra\n", 4);
-	}
-	if	(target == 'b' && is_reverse)
-	{
+	if (target == 'b' || target == 's')
+		set_bottom_top(*tabs, &s_idx, &e_idx, 'b');
+	if	((target == 'b' || target == 's') && is_reverse)
 		rotate_inter(tabs, s_idx, e_idx);
-		write(1, "rrb\n", 4);
-	}
-	if (target == 'b' && !is_reverse)
-	{
+	if ((target == 'b' || target == 's') && !is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
-		write(1, "rb\n", 3);
-	}
-
-}
-
-void	super_rotate(t_tab_ab *tabs, char is_reverse)
-{
-	rotate(tabs, 'a', is_reverse);
-	rotate(tabs, 'b', is_reverse);
+	rotate_printer(target, is_reverse);
 }

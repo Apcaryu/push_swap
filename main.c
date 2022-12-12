@@ -35,12 +35,20 @@ int	main(int argc, char *argv[])
 		return (printf("double presence detected\n"));
 	}
 	push(&tabs, 'b');
-	new_print_tab(tabs, 's');
+	push(&tabs, 'b');
 	push(&tabs, 'b');
 	new_print_tab(tabs, 's');
-	swap(&tabs, 'b');
+	rotate(&tabs, 'a', false);
 	new_print_tab(tabs, 's');
-	swap(&tabs, 's');
+	rotate(&tabs, 'a', true);
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 'b', false);
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 'b', true);
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 's', false);
+	new_print_tab(tabs, 's');
+	rotate(&tabs, 's', true);
 	new_print_tab(tabs, 's');
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 /*
