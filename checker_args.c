@@ -7,7 +7,9 @@ int	is_full_numbers(char *arg)
 	idx = 0;
 	while (arg[idx])
 	{
-		if ((arg[idx] < '0' || '9' < arg[idx]) && arg[idx] != ' ') //TODO add negative
+		if ((arg[idx] < '0' || '9' < arg[idx]) && arg[idx] != ' ' && arg[idx] != '-') //TODO add negative
+			return (1);
+		if (arg[idx] == '-' && (arg[idx + 1] < '0' || '9' < arg[idx + 1]))
 			return (1);
 		idx++;
 	}

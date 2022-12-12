@@ -1,5 +1,24 @@
 #include "push_swap.h"
 
+t_bool	is_sorted(t_tab_ab data_tabs)
+{
+	unsigned int	idx;
+	int				tmp;
+
+	idx = data_tabs.top_a - 1;
+	tmp = data_tabs.tab[data_tabs.top_a];
+	while (idx != UINT_MAX)
+	{
+		if (data_tabs.tab[idx] < tmp)
+		{
+			return (false);
+		}
+		tmp = data_tabs.tab[idx];
+		idx--;
+	}
+	return (true);
+}
+
 int	main(int argc, char *argv[])
 {
 
@@ -20,13 +39,16 @@ int	main(int argc, char *argv[])
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 //	new_print_tab(tabs, 's');
 
-	all_in_b(&tabs);
+//	all_in_b(&tabs);
 //	init_test(tabs);
 
 //	move_or_not(&tabs);
 //	new_print_tab(tabs, 's');
 	all_in_a(&tabs);
+	final_rotate(&tabs);
 //	new_print_tab(tabs, 's');
+//	printf("list is sorted : %u", is_sorted(tabs));
+	free(tabs.tab);
 //	if (check_order(tabs) == 0)
 //		printf("\033[34mis not tried\n\033[0m");
 //	else

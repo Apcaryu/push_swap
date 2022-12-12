@@ -1,7 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c swap.c utils.c init.c checker_args.c push.c rotate.c \
-		better_sequence.c all_in_b.c all_in_a.c
+		better_sequence.c all_in_b.c all_in_a.c final_rotate.c \
+		numbers_moves.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_sawp
 T_SRCS = test.c test_instruction_set.c $(SRCS)

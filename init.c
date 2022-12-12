@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+void    init_data_dist(t_data_dist *data_dist)
+{
+	data_dist->dist = UINT_MAX;
+	data_dist->num = 0;
+	data_dist->idx = UINT_MAX;
+	data_dist->reverse_a;
+	data_dist->reverse_b;
+}
+
 static unsigned int	the_words(char const *s, char c)
 {
 	size_t	size;
@@ -89,6 +98,19 @@ void	get_min(t_tab_ab *tabs)
 	}
 }
 
+static void	freezer(char **tab)
+{
+	size_t	idx;
+
+	idx = 0;
+	while (tab[idx] != NULL)
+	{
+		free(tab[idx]);
+		idx++;
+	}
+	free(tab);
+}
+
 void	new_init_tab(t_tab_ab *tabs, char *argv)
 {
 	char	**char_list;
@@ -101,5 +123,6 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	tabs->top_a = size_list - 1;
 	get_min(tabs);
 	get_max(tabs);
+	freezer(char_list);
 //	printf("min = %d | max = %d\n", tabs->min, tabs->max);
 }
