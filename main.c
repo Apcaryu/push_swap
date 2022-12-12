@@ -34,29 +34,27 @@ int	main(int argc, char *argv[])
 		free(tabs.tab);
 		return (printf("double presence detected\n"));
 	}
-	push(&tabs, 'b');
-	push(&tabs, 'b');
-	push(&tabs, 'b');
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 'a', false);
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 'a', true);
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 'b', false);
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 'b', true);
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 's', false);
-	new_print_tab(tabs, 's');
-	rotate(&tabs, 's', true);
-	new_print_tab(tabs, 's');
+	// push(&tabs, 'b');
+	// push(&tabs, 'b');
+	// push(&tabs, 'b');
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 'a', false);
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 'a', true);
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 'b', false);
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 'b', true);
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 's', false);
+	// new_print_tab(tabs, 's');
+	// rotate(&tabs, 's', true);
+	// new_print_tab(tabs, 's');
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
-/*
 	better_sequence(&tabs);
 	all_in_a(&tabs);
 	final_rotate(&tabs);
 	free(tabs.tab);
-	*/
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 //	new_print_tab(tabs, 's');
 
