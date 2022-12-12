@@ -73,13 +73,13 @@ void	all_in_a(t_tab_ab *data_tabs)
 		distance(*data_tabs, &data_dist, mm_ab);
 		while (data_tabs->tab[data_tabs->top_a + 1] != data_dist.num)
 		{
-			rotate(data_tabs, 'b', 0);
+			rotate(data_tabs, 'b', data_dist.reverse_b);
 //			printf("top_a + 1 = %d | dist_num = %d\n", data_tabs->tab[data_tabs->top_a + 1], data_dist.num); // TODO remove
 //			sleep(1); // TODO remove
 		}
 		while (check_push_in_a(*data_tabs, &mm_ab) == false)
 		{
-			rotate(data_tabs, 'a', 0);
+			rotate(data_tabs, 'a', data_dist.reverse_a);
 		}
 		push(data_tabs, 'a');
 //		printf("top_a + 1 = %d\n", data_tabs->tab[data_tabs->top_a + 1]); // TODO remove

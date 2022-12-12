@@ -43,7 +43,7 @@ t_bool	is_top_b(t_tab_ab data_tabs, t_data_dist data_dist, unsigned int idx)
 	// printf("size_b = %u | tab_size = %u | top_a = %u\n", size_b,  data_tabs.size, data_tabs.top_a); // TODO remove
 	pos_b = idx - data_tabs.top_a;
 	// printf("size_b = %u | pos_b = %u | idx = %u | top_a = %u\n", size_b, pos_b, idx, data_tabs.top_a); // TODO remove
-	printf("size_b / 2 = %u | pos_b = %u\n", size_b / 2, pos_b); // TODO remove
+//	printf("size_b / 2 = %u | pos_b = %u\n", size_b / 2, pos_b); // TODO remove
 	if (size_b % 2 == 1)
 		up_nb = 1;
 	else
@@ -153,9 +153,9 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 		data_dist->reverse_b = reverse_b;
 		data_dist->reverse_a = reverse_a;
 	}
-	new_print_tab(data_tabs, 's');
-	printf("dist_b = %u | reverse_b = %d | nb = %d\n", dist_b, /*data_dist->*/reverse_b, data_tabs.tab[nb_pos]); // TODO remove
-	sleep(2);
+//	new_print_tab(data_tabs, 's'); // TODO remove
+//	printf("dist_b = %u | reverse_b = %d | nb = %d\n", dist_b, /*data_dist->*/reverse_b, data_tabs.tab[nb_pos]); // TODO remove
+//	sleep(2); // TODO remove
 }
 
 void	distance(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab)
