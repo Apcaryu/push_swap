@@ -19,13 +19,18 @@ t_bool	is_top_b(t_tab_ab data_tabs, t_data_dist data_dist, unsigned int idx)
 {
 	unsigned int	size_b;
 	unsigned int	pos_b;
+	unsigned int	up_nb;
 
 	size_b = data_tabs.size - 1 - data_tabs.top_a;
 	// printf("size_b = %u | tab_size = %u | top_a = %u\n", size_b,  data_tabs.size, data_tabs.top_a); // TODO remove
 	pos_b = idx - data_tabs.top_a;
 	// printf("size_b = %u | pos_b = %u | idx = %u | top_a = %u\n", size_b, pos_b, idx, data_tabs.top_a); // TODO remove
 	printf("size_b / 2 = %u | pos_b = %u\n", size_b / 2, pos_b); // TODO remove
-	if (pos_b <= size_b / 2)
+	if (size_b % 2 == 1)
+		up_nb = 1;
+	else
+		up_nb = 0;
+	if (pos_b <= size_b / 2 + up_nb)
 		return (true);
 	else
 		return (false);
