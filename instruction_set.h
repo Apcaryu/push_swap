@@ -18,6 +18,9 @@ typedef struct	s_tab_ab
 typedef struct	s_data_dist
 {
 	unsigned int	dist;
+	unsigned int	dist_a;
+	unsigned int	dist_b;
+	unsigned int	nb_rr_rrr;
 	unsigned int	idx;
 	int				num;
     t_bool          reverse_a;

@@ -145,9 +145,21 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 	}
 	*/
 //	dist_a = dist - dist_b;
-	if (dist_a + dist_b < data_dist->dist)
+
+	dist = dist_a + dist_b;
+	if (dist_a < dist_b)
+		dist -=  dist_a;
+	else if (dist_b < dist_a)
+		dist -= dist_b;
+	if (dist < data_dist->dist)
 	{
-		data_dist->dist = dist_a + dist_b;
+		data_dist->dist = dist;
+		data_dist->dist_a = dist_a;
+		data_dist->dist_b = dist_b;
+		if (dist_a < dist_b)
+			data_dist->nb_rr_rrr = dist_a;
+		else if (dist_b < dist_a)
+			data_dist->nb_rr_rrr = dist_b;
 		data_dist->idx = nb_pos;
 		data_dist->num = data_tabs.tab[data_dist->idx];
 		data_dist->reverse_b = reverse_b;

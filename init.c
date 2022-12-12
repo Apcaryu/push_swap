@@ -3,6 +3,7 @@
 void    init_data_dist(t_data_dist *data_dist)
 {
 	data_dist->dist = UINT_MAX;
+	data_dist->nb_rr_rrr = 0;
 	data_dist->num = 0;
 	data_dist->idx = UINT_MAX;
 	data_dist->reverse_a;
