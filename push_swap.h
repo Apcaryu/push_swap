@@ -48,5 +48,7 @@ t_bool	numbers_moves(t_tab_ab data_tabs);
 void	distance(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab);
 void	all_in_a(t_tab_ab *data_tabs);
 void	final_rotate(t_tab_ab *data_tabs);
+void	special_three(t_tab_ab *data_tabs);
+t_bool	is_sorted(t_tab_ab data_tabs);
 
 # endif
