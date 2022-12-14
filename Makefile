@@ -38,6 +38,7 @@ $(T_NAME) : fclean $(T_OBJS)
 
 thanks :
 	@echo "\033[40m\033[37m\e[1mThanks to:\033[0m"
+	@echo "\033[5m\033[43m\033[30m<-----Lucas Triolet----->\033[0m"
 	@echo "\033[36mpgros aka Perrine"
 	@echo "\033[36mmaitre de l'evasion sleleu aka Sebastien\033[0m"
 	@echo "\033[36mcopper swordsman jgreau aka Jean-Yves"
