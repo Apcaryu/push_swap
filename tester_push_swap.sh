@@ -1,14 +1,22 @@
 #!/bin/zsh
 
-echo "Please select mod:"
-echo "0 : all test"
-echo "1 : 3 numbers"
-echo "2 : 5 numbers"
-echo "3 : 100 numbers"
-echo "4 : 500 numbers"
-echo "5 : quit"
+if [[ $# == 0 ]] || [[ 2 < $# ]]
+then
+  echo "Please select mod:"
+  echo "0 : all test"
+  echo "1 : 3 numbers"
+  echo "2 : 5 numbers"
+  echo "3 : 100 numbers"
+  echo "4 : 500 numbers"
+  echo "5 : quit"
+  read test_mod
 
-read test_mod
+  echo "How many tests you want to do?"
+  read nb_test
+else
+  test_mod=$1
+  nb_test=$2
+fi
 
 if [[ $test_mod == 1 ]] || [[ $test_mod == 0 ]]
 then
