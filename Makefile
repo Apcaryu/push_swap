@@ -24,7 +24,7 @@ clean :
 	rm -f $(T_OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+#	rm -f $(NAME)
 	rm -f $(T_NAME)
 	make -C libft fclean
 
