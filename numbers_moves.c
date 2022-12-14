@@ -61,7 +61,7 @@ unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
 	dist_a = 0;
 	if (reverse_a == false)
 	{
-		printf("idx = %u | top = %u\n", idx, data_tab.top_a); //TODO remove
+		// printf("idx = %u | top = %u\n", idx, data_tab.top_a); //TODO remove
 		while (idx < data_tab.top_a)
 		{
 			dist_a++;
@@ -70,7 +70,7 @@ unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
 	}
 	else
 	{
-		printf("idx = %u\n", idx); // TODO remove
+		// printf("idx = %u\n", idx); // TODO remove
 		while (idx != UINT_MAX)
 		{
 			dist_a++;
@@ -98,7 +98,7 @@ unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, unsigned int idx)
 	unsigned int	dist_b;
 
 	dist_b = 0;
-	while (idx > data_tab.top_a && idx < data_tab.size)
+	while (idx > data_tab.top_a && idx <= data_tab.size)
 	{
 		if (reverse_b == false)
 		{
@@ -168,11 +168,11 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 //	dist_a = dist - dist_b;
 
 	dist = dist_a + dist_b;
-	if (dist_a < dist_b && reverse_a == reverse_b)
+	if (dist_a <= dist_b && reverse_a == reverse_b)
 		dist -=  dist_a;
-	else if (dist_b < dist_a && reverse_a == reverse_b)
+	else if (dist_b <= dist_a && reverse_a == reverse_b)
 		dist -= dist_b;
-	printf("dist_a = %u | dist_b = %u | dist = %u | rev_a = %u | rev_b = %u\n", dist_a, dist_b, dist, reverse_a, reverse_b); // TODO remove
+	// printf("dist_a = %u | dist_b = %u | dist = %u | rev_a = %u | rev_b = %u\n", dist_a, dist_b, dist, reverse_a, reverse_b); // TODO remove
 	if (dist < data_dist->dist)
 	{
 		data_dist->dist = dist;
@@ -200,7 +200,7 @@ void	distance(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab)
 
 	idx = data_tabs.top_a + 1;
 //	list_taveler(data_tabs, data_dist, mm_ab, idx);
-	new_print_tab(data_tabs, 's');
+	// new_print_tab(data_tabs, 's');
 	while (idx < data_tabs.size)
 	{
 //		printf("idx = %u\n", idx); // TODO remove
