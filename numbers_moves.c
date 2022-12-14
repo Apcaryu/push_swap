@@ -67,10 +67,13 @@ unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
 			idx++;
 		}
 	}
-	else if (idx != UINT_MAX)
+	else
 	{
-		dist_a++;
-		idx--;
+		while (idx != UINT_MAX)
+		{
+			dist_a++;
+			idx--;
+		}
 	}
 	// while (idx < data_tab.top_a && idx != UINT_MAX)
 	// {
@@ -167,6 +170,7 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 		dist -=  dist_a;
 	else if (dist_b < dist_a)
 		dist -= dist_b;
+	// printf("dist_a = %u | dist_b = %u | dist = %u | rev_a = %u | rev_b = %u\n", dist_a, dist_b, dist, reverse_a, reverse_b); // TODO remove
 	if (dist < data_dist->dist)
 	{
 		data_dist->dist = dist;

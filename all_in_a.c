@@ -71,11 +71,14 @@ void	all_in_a(t_tab_ab *data_tabs)
 	{
 //		new_print_tab(*data_tabs, 's'); // TODO remove
 		distance(*data_tabs, &data_dist, mm_ab);
+		// printf("rev_a = %d | rev_b = %d\n", data_dist.reverse_a, data_dist.reverse_b); // TODO remove
+		// unsigned int cmp_test = 0; // TODO remove
 		if (data_dist.reverse_a == data_dist.reverse_b)
 		{
 			while (data_dist.nb_rr_rrr)
 			{
 				rotate(data_tabs, 's', data_dist.reverse_a);
+				data_dist.nb_rr_rrr--;
 			}
 		}
 		while (data_tabs->tab[data_tabs->top_a + 1] != data_dist.num)
