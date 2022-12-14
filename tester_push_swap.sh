@@ -4,26 +4,27 @@ function lets_go()
 {
   nb_test=$1
   test_mod=$2
-  
+
+  if [[ $test_mod == 1 ]]
+  then
+    list_size=3
+    max_move=3
+  elif [[ $test_mod == 2 ]]
+  then
+    list_size=5
+    max_move=12
+  elif [[ $test_mod == 3 ]]
+  then
+    list_size=100
+    max_move=1500
+  elif [[ $test_mod == 4 ]]
+  then
+    list_size=500
+    max_move=11500
+  fi
+  echo "\033[33m$list_size numbers test\033[0m"
   while [[ 0 -lt $nb_test ]] 
   do
-    if [[ $test_mod == 1 ]]
-    then
-      list_size=3
-      max_move=3
-    elif [[ $test_mod == 2 ]]
-    then
-      list_size=5
-      max_move=12
-    elif [[ $test_mod == 3 ]]
-    then
-      list_size=100
-      max_move=1500
-    elif [[ $test_mod == 4 ]]
-    then
-      list_size=500
-      max_move=11500
-    fi
     ARG=$(./random_number/random_number.out $list_size)
     nb_moves=$(./t_push_swap $ARG | wc -l)
     is_sort=$(./t_push_swap $ARG | ./checker_linux $ARG)
@@ -60,7 +61,19 @@ else
   test_mod=$1
   nb_test=$2
 fi
-lets_go $nb_test $test_mod
+if [[ $test_mod == 0 ]]
+then
+  mod=1
+  tmp_nb_test=$nb_test
+  while [[ $mod -lt 5 ]]
+  do
+    lets_go $nb_test $mod
+    nb_test=$tmp_nb_test
+    mod=$(($mod+1))
+  done
+else
+  lets_go $nb_test $test_mod
+fi
 if [[ $test_mod == 1 ]] || [[ $test_mod == 0 ]]
 then
   echo "\033[33m3 numbers test\033[0m"
