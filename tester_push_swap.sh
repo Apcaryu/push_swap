@@ -1,5 +1,48 @@
 #!/bin/zsh
 
+function lets_go()
+{
+  nb_test=$1
+  test_mod=$2
+  
+  while [[ 0 -lt $nb_test ]] 
+  do
+    if [[ $test_mod == 1 ]]
+    then
+      list_size=3
+      max_move=3
+    elif [[ $test_mod == 2 ]]
+    then
+      list_size=5
+      max_move=12
+    elif [[ $test_mod == 3 ]]
+    then
+      list_size=100
+      max_move=1500
+    elif [[ $test_mod == 4 ]]
+    then
+      list_size=500
+      max_move=11500
+    fi
+    ARG=$(./random_number/random_number.out $list_size)
+    nb_moves=$(./t_push_swap $ARG | wc -l)
+    is_sort=$(./t_push_swap $ARG | ./checker_linux $ARG)
+    if [[ $max_move -lt $nb_moves ]]
+    then
+      echo -n "nb_move = \033[31m$nb_moves\033[0m | "
+    else
+      echo -n "nb_move = \033[32m$nb_moves\033[0m | "
+    fi
+    if [[ 'OK' == $is_sort ]]
+    then
+      echo "\033[32mList sorted! 👍\033[0m"
+    else
+      echo "\033[31mNot sorted\033[0m"
+    fi
+    nb_test=$(($nb_test-1))
+  done
+}
+
 if [[ $# == 0 ]] || [[ 2 < $# ]]
 then
   echo "Please select mod:"
@@ -17,11 +60,12 @@ else
   test_mod=$1
   nb_test=$2
 fi
-
+lets_go $nb_test $test_mod
 if [[ $test_mod == 1 ]] || [[ $test_mod == 0 ]]
 then
   echo "\033[33m3 numbers test\033[0m"
-  ARG="3 2 1"
+  list_size=3
+  ARG=$(./random_number/random_number.out $list_size)
   nb_moves=$(./t_push_swap $ARG | wc -l);
   if [[ 3 -lt $nb_moves ]]
   then
