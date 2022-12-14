@@ -59,19 +59,32 @@ unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
 	unsigned int	dist_a;
 
 	dist_a = 0;
-	while (data_tab.top_a < idx && idx != UINT_MAX)
+	if (reverse_a == false)
 	{
-		if (reverse_a == false)
+		while (data_tab.top_a < idx)
 		{
 			dist_a++;
 			idx++;
 		}
-		else
-		{
-			dist_a++;
-			idx--;
-		}
 	}
+	else if (idx != UINT_MAX)
+	{
+		dist_a++;
+		idx--;
+	}
+	// while (idx < data_tab.top_a && idx != UINT_MAX)
+	// {
+	// 	if (reverse_a == false)
+	// 	{
+	// 		dist_a++;
+	// 		idx++;
+	// 	}
+	// 	else
+	// 	{
+	// 		dist_a++;
+	// 		idx--;
+	// 	}
+	// }
 	return (dist_a);
 }
 
@@ -131,10 +144,13 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 
 	reverse_b = !is_top_b(data_tabs, *data_dist, nb_pos);
 	idx = check_where(data_tabs, mm_ab, data_tabs.tab[nb_pos]);
+	// printf("idx = %u\n", idx);
 	reverse_a = is_top_a(data_tabs, idx);
 	dist = 0;
 	dist_b = set_dist_b(data_tabs, reverse_b, nb_pos);
+	// printf("dist_b = %u\n", dist_b); // TODO remove
 	dist_a = set_dist_a(data_tabs, reverse_a, idx);
+	// printf("dist_a = %u\n", dist_a); // TODO remove
 	/*
 	while (idx != UINT_MAX)
 	{
@@ -160,12 +176,14 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 			data_dist->nb_rr_rrr = dist_a;
 		else if (dist_b < dist_a)
 			data_dist->nb_rr_rrr = dist_b;
+		else
+			data_dist->nb_rr_rrr = 0;
 		data_dist->idx = nb_pos;
 		data_dist->num = data_tabs.tab[data_dist->idx];
 		data_dist->reverse_b = reverse_b;
 		data_dist->reverse_a = reverse_a;
 	}
-//	new_print_tab(data_tabs, 's'); // TODO remove
+	// new_print_tab(data_tabs, 's'); // TODO remove
 //	printf("dist_b = %u | reverse_b = %d | nb = %d\n", dist_b, /*data_dist->*/reverse_b, data_tabs.tab[nb_pos]); // TODO remove
 //	sleep(2); // TODO remove
 }
