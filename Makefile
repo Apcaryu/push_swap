@@ -42,3 +42,4 @@ thanks :
 	@echo "\033[36mpgros aka Perrine"
 	@echo "\033[36mmaitre de l'evasion sleleu aka Sebastien\033[0m"
 	@echo "\033[36mcopper swordsman jgreau aka Jean-Yves"
+	@echo "\033[36mZE meshahrv aka Melodie"
