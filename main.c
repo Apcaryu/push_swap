@@ -53,6 +53,8 @@ int	main(int argc, char *argv[])
 //	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 	if (tabs.size == 3)
 		special_three(&tabs);
+	else if (tabs.size == 5)
+		special_five(&tabs);
 	else
 	{
 		better_sequence(&tabs);

@@ -1,5 +1,13 @@
 #include "push_swap.h"
 
+void	init_min_max_ab(t_min_max_ab *mm_ab)
+{
+	mm_ab->min_a = INT_MAX;
+	mm_ab->max_a = INT_MIN;
+	mm_ab->min_b = INT_MAX;
+	mm_ab->max_b = INT_MIN;
+}
+
 void    init_data_dist(t_data_dist *data_dist)
 {
 	data_dist->dist = UINT_MAX;

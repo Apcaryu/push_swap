@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c swap.c utils.c init.c checker_args.c push.c rotate.c \
 		better_sequence.c all_in_b.c all_in_a.c final_rotate.c \
-		numbers_moves.c special_three.c
+		numbers_moves.c special_three.c special_five.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_sawp
 T_SRCS = test.c test_instruction_set.c $(SRCS)
@@ -34,7 +34,7 @@ debug : $(T_NAME) thanks
 
 $(T_NAME) : fclean $(T_OBJS)
 	make -C libft
-	$(CC) -D IS_TEST=1 $(T_OBJS) libft/libft.a -o $(T_NAME)
+	$(CC) -D IS_TEST=1 $(T_OBJS) libft/libft.a -o $(T_NAME) -g3
 
 thanks :
 	@echo "\033[40m\033[37m\e[1mThanks to:\033[0m"
