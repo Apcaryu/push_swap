@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c swap.c utils.c init.c checker_args.c push.c rotate.c \
+SRCS = main.c swap.c init.c checker_args.c push.c rotate.c \
 		better_sequence.c all_in_a.c final_rotate.c \
 		numbers_moves.c special_three.c special_five.c
 OBJS = $(SRCS:.c=.o)
@@ -25,7 +25,6 @@ fclean : clean
 	make -C libft fclean
 
 re : fclean all
-
 
 thanks :
 	@echo "\033[40m\033[37m\e[1mThanks to:\033[0m"

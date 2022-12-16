@@ -38,16 +38,16 @@ int	main(int argc, char *argv[]) // TODO too many lines
 	if (argc <= 1)
 		exit(EXIT_SUCCESS);
 	if (is_full_numbers(argv[1]))
-		return (printf("not only number list\n"));
+		return (ft_printf("not only number list\n"));
 	if (is_full_space(argv[1]))
-		return (printf("empty list\n"));
+		return (ft_printf("empty list\n"));
 	new_init_tab(&tabs, argv[1]);
 	if (tabs.tab == NULL)
 		return (0);
 	if (is_double(tabs))
 	{
 		free(tabs.tab);
-		return (printf("double presence detected\n"));
+		return (ft_printf("double presence detected\n"));
 	}
 	if (tabs.size == 3)
 		special_three(&tabs);

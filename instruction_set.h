@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include "libft/libft.h"
-# include "utils.h"
 
 typedef struct s_tab_ab
 {
