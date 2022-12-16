@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/17 00:23:33 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/17 00:25:24 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "instruction_set.h"
 
 void	swap_printer(char target)
@@ -7,12 +19,12 @@ void	swap_printer(char target)
 	else if (target == 'b')
 		write(1, "sb\n", 3);
 	else if (target == 's')
-		write(1, "ss\n", 3);	
+		write(1, "ss\n", 3);
 }
 
 void	swap(t_tab_ab *tabs, char target)
 {
-	int tmp;
+	int	tmp;
 
 	if (target == 'a' || target == 's')
 	{
