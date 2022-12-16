@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_args.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:40:46 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:40:47 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_full_numbers(char *arg)
@@ -7,7 +19,8 @@ int	is_full_numbers(char *arg)
 	idx = 0;
 	while (arg[idx])
 	{
-		if ((arg[idx] < '0' || '9' < arg[idx]) && arg[idx] != ' ' && arg[idx] != '-') //TODO add negative
+		if ((arg[idx] < '0' || '9' < arg[idx]) && \
+			arg[idx] != ' ' && arg[idx] != '-')
 			return (1);
 		if (arg[idx] == '-' && (arg[idx + 1] < '0' || '9' < arg[idx + 1]))
 			return (1);
@@ -30,7 +43,7 @@ int	is_full_space(char *arg)
 	return (1);
 }
 
-int is_double(t_tab_ab data_tab)
+int	is_double(t_tab_ab data_tab)
 {
 	unsigned int	idx;
 	unsigned int	sub_idx;
@@ -54,7 +67,7 @@ int is_double(t_tab_ab data_tab)
 
 t_bool	is_not_int(char *c_nb, int i_nb)
 {
-	char *result;
+	char	*result;
 
 	result = ft_itoa(i_nb);
 	if (result == NULL)
