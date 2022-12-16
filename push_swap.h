@@ -46,5 +46,6 @@ void	special_three(t_tab_ab *data_tabs);
 void	special_five(t_tab_ab *data_tabs);
 t_bool	is_sorted(t_tab_ab data_tabs);
 t_bool	is_not_int(char *c_nb, int i_nb);
+t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab);
 
 # endif

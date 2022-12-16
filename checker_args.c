@@ -6,7 +6,7 @@
 /*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 17:40:46 by apellegr          #+#    #+#             */
-/*   Updated: 2022/12/16 17:40:47 by apellegr         ###   ########.fr       */
+/*   Updated: 2022/12/17 00:33:16 by apellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	is_double(t_tab_ab data_tab)
 {
 	unsigned int	idx;
 	unsigned int	sub_idx;
-	unsigned int	tmp;
+	int				tmp;
 
 	idx = 0;
 	while (idx < data_tab.size)
