@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   special_three.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/17 00:21:14 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/17 00:21:52 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 unsigned int	get_max_pos(t_tab_ab data_tabs, t_min_max_ab mm_ab)
@@ -16,7 +28,7 @@ unsigned int	get_max_pos(t_tab_ab data_tabs, t_min_max_ab mm_ab)
 
 void	special_three(t_tab_ab *data_tabs)
 {
-	t_min_max_ab mm_ab;
+	t_min_max_ab	mm_ab;
 
 	init_min_max_ab(&mm_ab);
 	while (!is_sorted(*data_tabs))
