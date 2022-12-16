@@ -38,23 +38,6 @@ int	main(int argc, char *argv[])
 		free(tabs.tab);
 		return (printf("double presence detected\n"));
 	}
-	// push(&tabs, 'b');
-	// push(&tabs, 'b');
-	// push(&tabs, 'b');
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 'a', false);
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 'a', true);
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 'b', false);
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 'b', true);
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 's', false);
-	// new_print_tab(tabs, 's');
-	// rotate(&tabs, 's', true);
-	// new_print_tab(tabs, 's');
-//	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
 	if (tabs.size == 3)
 		special_three(&tabs);
 	else if (tabs.size == 5)
@@ -66,38 +49,4 @@ int	main(int argc, char *argv[])
 		final_rotate(&tabs);
 	}
 	free(tabs.tab);
-//	printf("tab[0] = %d | top_a = %u\n", tabs.tab[0], tabs.top_a);
-//	new_print_tab(tabs, 's');
-
-//	all_in_b(&tabs);
-//	init_test(tabs);
-
-//	move_or_not(&tabs);
-//	new_print_tab(tabs, 's');
-//	new_print_tab(tabs, 's');
-//	printf("list is sorted : %u", is_sorted(tabs));
-//	if (check_order(tabs) == 0)
-//		printf("\033[34mis not tried\n\033[0m");
-//	else
-//		printf("\033[32mis tried\n\033[0m");
-//	swap(&tabs, 'a');
-//	new_print_tab(tabs, 's');
-//	push(&tabs, 'b');
-//	push(&tabs, 'b');
-//	push(&tabs, 'b');
-//	new_print_tab(tabs, 's');
-//	super_rotate(&tabs, 0);
-//	new_print_tab(tabs, 's');
-//	super_rotate(&tabs, 1);
-//	new_print_tab(tabs, 's');
-//	swap(&tabs, 'a');
-//	new_print_tab(tabs, 's');
-//	push(&tabs, 'a');
-//	push(&tabs, 'a');
-//	push(&tabs, 'a');
-//	new_print_tab(tabs, 's');
-//	if (check_order(tabs) == 0)
-//		printf("\033[34mis not tried\n\033[0m");
-//	else
-//		printf("\033[32mis tried\n\033[0m");
 }

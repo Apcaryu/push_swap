@@ -45,24 +45,11 @@ t_bool	is_in_sequence(int number, t_data_sequence data_seq)
 	return (false);
 }
 
-void	print_s_list(t_data_sequence data_seq, unsigned int size) // TODO remove
-{
-	int idx;
-
-	idx = 0;
-	while (idx < size)
-	{
-		printf("%d\n", data_seq.seq_list[idx]);
-		idx++;
-	}
-	printf("----------------\n");
-}
 unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start, unsigned int	idx)
 {
 	unsigned int	size;
 
 	size = 1;
-//	printf("idx = %u | start = %u\n", idx, start); //OK TODO remove
 	while (idx != start)
 	{
 		if (data_tabs.size < idx)
@@ -81,7 +68,6 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 			if (2 <= size)
 				data_seq->min = data_seq->tmp_list[size - 2];
 		}
-//		printf("size = %u | min = %d | tmp = %d\n", size, data_seq->min, data_seq->tmp); // TODO remove
 		idx--;
 	}
 	return (size);
@@ -93,7 +79,6 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 	unsigned int	size;
 	
 	idx = start;
-	size = 1;
 	if (data_tabs.size < idx)
 	    idx = data_tabs.top_a;
 	data_seq->min = data_tabs.tab[idx];
@@ -107,7 +92,6 @@ void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int s
 		data_seq->idx_better_nb = start;
 		data_seq->start_num = data_tabs.tab[start];
 	}
-//	print_s_list(*data_seq, size);
 }
 
 void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
@@ -141,25 +125,9 @@ void	better_sequence(t_tab_ab *data_tabs)
 		sequence_size(*data_tabs, &data_seq, start);
 		start--;
 	}
-//	printf("size = %u | min = %d | tmp = %d\n", data_seq.seq_size, data_seq.min, data_seq.tmp); // OK TODO remove
-//	new_print_tab(*data_tabs, 's'); // TODO remove
 	sequence_pusher(data_tabs, data_seq);
-	// print_s_list(data_seq, data_seq.seq_size);
-	// new_print_tab(*data_tabs, 'b'); // TODO remove
 	if (data_seq.seq_list)
 		free(data_seq.seq_list);
 	if (data_seq.tmp_list)
 		free(data_seq.tmp_list);
 }
-
-//---------------------Test function of better_sequence.c----------------------
-/*int main(int argc, char *argv[])
-{
-	t_tab_ab tabs;
-
-	new_init_tab(&tabs, argv[1]);
-	better_sequence(&tabs);
-	new_print_tab(tabs, 's');
-	free(tabs.tab);
-}
-*/

@@ -14,8 +14,6 @@ void    init_data_dist(t_data_dist *data_dist)
 	data_dist->nb_rr_rrr = 0;
 	data_dist->num = 0;
 	data_dist->idx = UINT_MAX;
-	data_dist->reverse_a;
-	data_dist->reverse_b;
 }
 
 static unsigned int	the_words(char const *s, char c)
@@ -69,18 +67,6 @@ static int	*char_to_int(char **list, unsigned int size_list)
 		r_idx--;
 		idx++;
 	}
-	return (list_out);
-}
-
-int	*init_tab(char *list)
-{
-	char **char_list;
-	int *list_out;
-	unsigned int size_list;
-
-	size_list = the_words(list, ' ');
-	char_list = ft_split(list, ' ');
-	list_out = char_to_int(char_list, size_list);
 	return (list_out);
 }
 
@@ -143,5 +129,4 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	get_min(tabs);
 	get_max(tabs);
 	freezer(char_list);
-//	printf("min = %d | max = %d\n", tabs->min, tabs->max); //TODO remove
 }
