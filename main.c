@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:56:21 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:56:22 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_bool	is_sorted(t_tab_ab data_tabs)
@@ -21,8 +33,7 @@ t_bool	is_sorted(t_tab_ab data_tabs)
 
 int	main(int argc, char *argv[])
 {
-
-	t_tab_ab tabs;
+	t_tab_ab	tabs;
 
 	if (argc <= 1)
 		exit(EXIT_SUCCESS);
