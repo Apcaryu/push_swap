@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/17 00:14:00 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/17 00:15:09 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "instruction_set.h"
 
-static void	set_bottom_top(t_tab_ab tabs, unsigned int *bottom, unsigned int *top, char target)
+static void	set_bottom_top(t_tab_ab tabs, unsigned int *bottom, \
+							unsigned int *top, char target)
 {
 	if (target == 'a')
 	{
@@ -69,7 +82,7 @@ void	rotate(t_tab_ab *tabs, char target, t_bool is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
 	if (target == 'b' || target == 's')
 		set_bottom_top(*tabs, &s_idx, &e_idx, 'b');
-	if	((target == 'b' || target == 's') && is_reverse)
+	if ((target == 'b' || target == 's') && is_reverse)
 		rotate_inter(tabs, s_idx, e_idx);
 	if ((target == 'b' || target == 's') && !is_reverse)
 		rotate_exter(tabs, s_idx, e_idx);
