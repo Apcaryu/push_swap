@@ -29,6 +29,8 @@ int	main(int argc, char *argv[])
 	if (is_full_space(argv[1]))
 		return (printf("empty list\n"));
 	new_init_tab(&tabs, argv[1]);
+	if (tabs.tab == NULL)
+		return (0);
 	if (is_double(tabs))
 	{
 		free(tabs.tab);

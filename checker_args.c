@@ -51,3 +51,22 @@ int is_double(t_tab_ab data_tab)
 	}
 	return (0);
 }
+
+t_bool	is_not_int(char *c_nb, int i_nb)
+{
+	char *result;
+
+	result = ft_itoa(i_nb);
+	if (result == NULL)
+	{
+		free(result);
+		return (true);
+	}
+	else if (!ft_strncmp(c_nb, result, ft_strlen(c_nb)))
+	{
+		free(result);
+		return (false);
+	}
+	free(result);
+	return (true);
+}

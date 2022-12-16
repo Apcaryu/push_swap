@@ -61,6 +61,11 @@ static int	*char_to_int(char **list, unsigned int size_list)
 	while (0xFFFFFFFF != r_idx)
 	{
 		list_out[r_idx] = ft_atoi(list[idx]);
+		if (is_not_int(list[idx], list_out[r_idx]))
+		{
+			free(list_out);
+			return (NULL);
+		}
 		r_idx--;
 		idx++;
 	}
@@ -128,6 +133,11 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	size_list = the_words(argv, ' ');
 	char_list = ft_split(argv, ' '); //TODO build a free for this tab
 	tabs->tab = char_to_int(char_list, size_list);
+	if (tabs->tab == NULL)
+	{
+		freezer(char_list);
+		return;
+	}
 	tabs->size = size_list;
 	tabs->top_a = size_list - 1;
 	get_min(tabs);
