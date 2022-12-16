@@ -143,5 +143,5 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	get_min(tabs);
 	get_max(tabs);
 	freezer(char_list);
-//	printf("min = %d | max = %d\n", tabs->min, tabs->max);
+//	printf("min = %d | max = %d\n", tabs->min, tabs->max); //TODO remove
 }

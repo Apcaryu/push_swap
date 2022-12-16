@@ -24,6 +24,8 @@ int	main(int argc, char *argv[])
 
 	t_tab_ab tabs;
 
+	if (argc <= 1)
+		exit(EXIT_SUCCESS);
 	if (is_full_numbers(argv[1]))
 		return (printf("not only number list\n"));
 	if (is_full_space(argv[1]))
