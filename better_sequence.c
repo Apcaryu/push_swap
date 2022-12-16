@@ -1,14 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   better_sequence.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:21:26 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:21:32 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*-----------------------------------------------------------------------------
- * recuperer la plus longue suite croissante
- * pour chaque nombre :
- *     faire un tour complet de la stack a pour recuperer la taille de la suite
- *     si la suite actuel est la plus grande
- *         enregistrer la taille et l'index du premier nombre
- *     sinon
- *         passer au nombre suivant
- *---------------------------------------------------------------------------*/
+#include "push_swap.h"
 
 void	init_data_sequence(t_data_sequence *data_seq, t_tab_ab data_tabs)
 {
@@ -45,7 +47,8 @@ t_bool	is_in_sequence(int number, t_data_sequence data_seq)
 	return (false);
 }
 
-unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start, unsigned int	idx)
+unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq,
+						unsigned int start, unsigned int idx)
 {
 	unsigned int	size;
 
@@ -55,8 +58,9 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 		if (data_tabs.size < idx)
 			idx = data_tabs.top_a;
 		if (idx == start)
-			break;
-		if (data_seq->min < data_tabs.tab[idx] && data_tabs.tab[idx] < data_seq->tmp_list[size - 1])
+			break ;
+		if (data_seq->min < data_tabs.tab[idx] && \
+			data_tabs.tab[idx] < data_seq->tmp_list[size - 1])
 		{
 			data_seq->min = data_tabs.tab[idx];
 			data_seq->tmp_list[size - 1] = data_tabs.tab[idx];
@@ -73,14 +77,15 @@ unsigned int	size_pp(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int
 	return (size);
 }
 
-void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, unsigned int start)
+void	sequence_size(t_tab_ab data_tabs, t_data_sequence *data_seq, \
+						unsigned int start)
 {
 	unsigned int	idx;
 	unsigned int	size;
-	
+
 	idx = start;
 	if (data_tabs.size < idx)
-	    idx = data_tabs.top_a;
+		idx = data_tabs.top_a;
 	data_seq->min = data_tabs.tab[idx];
 	data_seq->tmp_list[0] = data_tabs.tab[idx];
 	idx--;
@@ -103,7 +108,8 @@ void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 	max_push = data_tabs->size - data_sequence.seq_size;
 	while (nb_push < max_push)
 	{
-		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], data_sequence) == false)
+		if (is_in_sequence(data_tabs->tab[data_tabs->top_a], \
+		data_sequence) == false)
 		{
 			push(data_tabs, 'b');
 			nb_push++;
@@ -115,8 +121,8 @@ void	sequence_pusher(t_tab_ab *data_tabs, t_data_sequence data_sequence)
 
 void	better_sequence(t_tab_ab *data_tabs)
 {
-	t_data_sequence data_seq;
-	unsigned int start;
+	t_data_sequence	data_seq;
+	unsigned int	start;
 
 	init_data_sequence(&data_seq, *data_tabs);
 	start = data_tabs->top_a;

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
+void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab) // TODO to many lines
 {
 	unsigned int	idx;
 
@@ -69,7 +69,7 @@ t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 	return (false);
 }
 
-void	all_in_a(t_tab_ab *data_tabs)
+void	all_in_a(t_tab_ab *data_tabs) // TODO too many lines
 {
 	t_min_max_ab	mm_ab;
 	t_data_dist		data_dist;
