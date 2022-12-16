@@ -34,19 +34,11 @@ typedef struct s_min_max_ab
 int		is_full_numbers(char *arg);
 int		is_full_space(char *arg);
 int 	is_double(t_tab_ab data_tab);
-int		*init_tab(char *list);
 void    init_data_dist(t_data_dist *data_dist);
 void	init_min_max_ab(t_min_max_ab *mm_ab);
 void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab);
-
 void	new_init_tab(t_tab_ab *tabs, char *argv);
-
-char	check_order(t_tab_ab tabs);
-void	move_or_not(t_tab_ab *tabs);
-
 void	better_sequence(t_tab_ab *data_tabs);
-void	all_in_b(t_tab_ab *data_tabs);
-t_bool	numbers_moves(t_tab_ab data_tabs);
 void	distance(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab);
 void	all_in_a(t_tab_ab *data_tabs);
 void	final_rotate(t_tab_ab *data_tabs);
