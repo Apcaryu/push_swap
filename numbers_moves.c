@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   numbers_moves.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:59:02 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:59:03 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_bool	is_top_a(t_tab_ab data_tabs, unsigned int idx)
@@ -36,7 +48,8 @@ t_bool	is_top_b(t_tab_ab data_tabs, unsigned int idx)
 		return (false);
 }
 
-unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
+unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, \
+							unsigned int idx)
 {
 	unsigned int	dist_a;
 
@@ -60,7 +73,8 @@ unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, unsigned int idx)
 	return (dist_a);
 }
 
-unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, unsigned int idx)
+unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, \
+							unsigned int idx)
 {
 	unsigned int	dist_b;
 
@@ -81,7 +95,7 @@ unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, unsigned int idx)
 	return (dist_b);
 }
 
-t_bool check_where(t_tab_ab data_tabs, t_min_max_ab mm_ab, int number/*, unsigned int idx*/)
+t_bool	check_where(t_tab_ab data_tabs, t_min_max_ab mm_ab, int number)
 {
 	unsigned int	idx;
 	unsigned int	z_idx;
@@ -93,20 +107,21 @@ t_bool check_where(t_tab_ab data_tabs, t_min_max_ab mm_ab, int number/*, unsigne
 		if (data_tabs.top_a + 1 <= z_idx)
 			z_idx = 0;
 		if (number < data_tabs.tab[idx] && number > data_tabs.tab[z_idx])
-			break;
+			break ;
 		else if (data_tabs.tab[z_idx] == mm_ab.max_a && mm_ab.max_a < number)
-			break;
+			break ;
 		else if (data_tabs.tab[idx] == mm_ab.min_a && \
-        (number < mm_ab.min_a && data_tabs.tab[idx]))
-			break;
+		(number < mm_ab.min_a && data_tabs.tab[idx]))
+			break ;
 		else if (idx == 0)
-			break;
+			break ;
 		idx--;
 	}
 	return (idx);
 }
 
-void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab, unsigned int nb_pos)
+void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, \
+						t_min_max_ab mm_ab, unsigned int nb_pos)
 {
 	unsigned int	idx;
 	unsigned int	dist;
@@ -122,7 +137,7 @@ void	list_taveler(t_tab_ab data_tabs, t_data_dist *data_dist, t_min_max_ab mm_ab
 	dist_a = set_dist_a(data_tabs, reverse_a, idx);
 	dist = dist_a + dist_b;
 	if (dist_a <= dist_b && reverse_a == reverse_b)
-		dist -=  dist_a;
+		dist -= dist_a;
 	else if (dist_b <= dist_a && reverse_a == reverse_b)
 		dist -= dist_b;
 	if (dist < data_dist->dist)

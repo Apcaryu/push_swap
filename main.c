@@ -31,7 +31,7 @@ t_bool	is_sorted(t_tab_ab data_tabs)
 	return (true);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char *argv[]) // TODO too many lines
 {
 	t_tab_ab	tabs;
 
