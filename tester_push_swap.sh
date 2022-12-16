@@ -26,8 +26,8 @@ function lets_go()
   while [[ 0 -lt $nb_test ]] 
   do
     ARG=$(./random_number/random_number.out $list_size)
-    nb_moves=$(./t_push_swap $ARG | wc -l)
-    is_sort=$(./t_push_swap $ARG | ./checker_linux $ARG)
+    nb_moves=$(./push_swap $ARG | wc -l)
+    is_sort=$(./push_swap $ARG | ./checker_linux $ARG)
     if [[ $max_move -lt $nb_moves ]]
     then
       echo -n "nb_move = \033[31m$nb_moves\033[0m | "
