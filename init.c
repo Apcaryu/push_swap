@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:47:55 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:47:57 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	init_min_max_ab(t_min_max_ab *mm_ab)
@@ -8,7 +20,7 @@ void	init_min_max_ab(t_min_max_ab *mm_ab)
 	mm_ab->max_b = INT_MIN;
 }
 
-void    init_data_dist(t_data_dist *data_dist)
+void	init_data_dist(t_data_dist *data_dist)
 {
 	data_dist->dist = UINT_MAX;
 	data_dist->nb_rr_rrr = 0;
@@ -47,7 +59,7 @@ static unsigned int	the_words(char const *s, char c)
 
 static int	*char_to_int(char **list, unsigned int size_list)
 {
-	int 			*list_out;
+	int				*list_out;
 	unsigned int	idx;
 	unsigned int	r_idx;
 
@@ -113,16 +125,16 @@ static void	freezer(char **tab)
 
 void	new_init_tab(t_tab_ab *tabs, char *argv)
 {
-	char	**char_list;
-	unsigned int size_list;
+	char			**char_list;
+	unsigned int	size_list;
 
 	size_list = the_words(argv, ' ');
-	char_list = ft_split(argv, ' '); //TODO build a free for this tab
+	char_list = ft_split(argv, ' ');
 	tabs->tab = char_to_int(char_list, size_list);
 	if (tabs->tab == NULL)
 	{
 		freezer(char_list);
-		return;
+		return ;
 	}
 	tabs->size = size_list;
 	tabs->top_a = size_list - 1;
