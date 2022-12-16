@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   all_in_a.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 17:14:47 by apellegr          #+#    #+#             */
+/*   Updated: 2022/12/16 17:14:52 by apellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
@@ -7,11 +19,13 @@ void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 	idx = 0;
 	while (idx < data_tabs.size)
 	{
-		if (idx <= data_tabs.top_a) {
+		if (idx <= data_tabs.top_a)
+		{
 			if (data_tabs.tab[idx] < mm_ab->min_a)
 				mm_ab->min_a = data_tabs.tab[idx];
 		}
-		else if (data_tabs.top_a < idx) {
+		else if (data_tabs.top_a < idx)
+		{
 			if (data_tabs.tab[idx] < mm_ab->min_b)
 				mm_ab->min_b = data_tabs.tab[idx];
 		}
@@ -20,11 +34,13 @@ void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 	idx = 0;
 	while (idx < data_tabs.size)
 	{
-		if (idx <= data_tabs.top_a) {
+		if (idx <= data_tabs.top_a)
+		{
 			if (data_tabs.tab[idx] > mm_ab->max_a)
 				mm_ab->max_a = data_tabs.tab[idx];
 		}
-		else if (data_tabs.top_a < idx) {
+		else if (data_tabs.top_a < idx)
+		{
 			if (data_tabs.tab[idx] > mm_ab->max_b)
 				mm_ab->max_b = data_tabs.tab[idx];
 		}
@@ -32,18 +48,20 @@ void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 	}
 }
 
-t_bool check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
+t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 {
 	if (data_tabs.tab[data_tabs.top_a + 1] < data_tabs.tab[data_tabs.top_a] \
 	&& data_tabs.tab[data_tabs.top_a + 1] > data_tabs.tab[0])
 		return (true);
-	else if (data_tabs.tab[0] == mm_ab->max_a && mm_ab->max_a < data_tabs.tab[data_tabs.top_a + 1])
+	else if (data_tabs.tab[0] == mm_ab->max_a && \
+			mm_ab->max_a < data_tabs.tab[data_tabs.top_a + 1])
 	{
 		mm_ab->max_a = data_tabs.tab[data_tabs.top_a + 1];
 		return (true);
 	}
 	else if (data_tabs.tab[data_tabs.top_a] == mm_ab->min_a && \
-	(data_tabs.tab[data_tabs.top_a + 1] < mm_ab->min_a && data_tabs.tab[data_tabs.top_a]))
+			(data_tabs.tab[data_tabs.top_a + 1] < mm_ab->min_a && \
+			data_tabs.tab[data_tabs.top_a]))
 	{
 		mm_ab->min_a = data_tabs.tab[data_tabs.top_a + 1];
 		return (true);
@@ -53,13 +71,10 @@ t_bool check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 
 void	all_in_a(t_tab_ab *data_tabs)
 {
-	t_min_max_ab mm_ab;
-	t_data_dist data_dist;
+	t_min_max_ab	mm_ab;
+	t_data_dist		data_dist;
 
-	mm_ab.min_a = INT_MAX;
-	mm_ab.max_a = INT_MIN;
-	mm_ab.min_b = INT_MAX;
-	mm_ab.max_b = INT_MIN;
+	init_min_max_ab(&mm_ab);
 	init_data_dist(&data_dist);
 	set_min_max(*data_tabs, &mm_ab);
 	while (data_tabs->top_a < data_tabs->size - 1)
