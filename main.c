@@ -31,7 +31,21 @@ t_bool	is_sorted(t_tab_ab data_tabs)
 	return (true);
 }
 
-int	main(int argc, char *argv[]) // TODO too many lines
+void	exec(t_tab_ab *data_tabs)
+{
+	if (data_tabs->size == 3)
+		special_three(data_tabs);
+	else if (data_tabs->size == 5)
+		special_five(data_tabs);
+	else
+	{
+		better_sequence(data_tabs);
+		all_in_a(data_tabs);
+		final_rotate(data_tabs);
+	}
+}
+
+int	main(int argc, char *argv[])
 {
 	t_tab_ab	tabs;
 
@@ -49,15 +63,6 @@ int	main(int argc, char *argv[]) // TODO too many lines
 		free(tabs.tab);
 		return (ft_printf("double presence detected\n"));
 	}
-	if (tabs.size == 3)
-		special_three(&tabs);
-	else if (tabs.size == 5)
-		special_five(&tabs);
-	else
-	{
-		better_sequence(&tabs);
-		all_in_a(&tabs);
-		final_rotate(&tabs);
-	}
+	exec(&tabs);
 	free(tabs.tab);
 }
