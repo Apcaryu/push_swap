@@ -93,7 +93,7 @@ void	new_init_tab(t_tab_ab *tabs, char *argv)
 	if (tabs->tab == NULL)
 	{
 		freezer(char_list);
-		return ;
+		error_exit(tabs);
 	}
 	tabs->size = size_list;
 	tabs->top_a = size_list - 1;

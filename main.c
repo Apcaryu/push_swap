@@ -45,24 +45,33 @@ void	exec(t_tab_ab *data_tabs)
 	}
 }
 
+void	error_exit(t_tab_ab *data_tabs)
+{
+	if (data_tabs->tab != NULL)
+		free(data_tabs->tab);
+	ft_printf("Error\n");
+	exit(EXIT_SUCCESS);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_tab_ab	tabs;
 
+	tabs.tab = NULL;
 	if (argc <= 1)
 		exit(EXIT_SUCCESS);
 	else if (argc == 2)
 	{
 		if (is_full_numbers(argv[1]))
-			return (ft_printf("not only number list\n"));
+			error_exit(&tabs);
 		if (is_full_space(argv[1]))
-			return (ft_printf("empty list\n"));
+			exit(EXIT_SUCCESS);
 		new_init_tab(&tabs, argv[1]);
 		if (tabs.tab == NULL)
 			return (0);
 		if (is_double(tabs)) {
 			free(tabs.tab);
-			return (ft_printf("double presence detected\n"));
+			error_exit(&tabs);
 		}
 		exec(&tabs);
 		free(tabs.tab);

@@ -37,6 +37,7 @@ typedef struct s_min_max_ab
 	int	max_b;
 }	t_min_max_ab;
 
+void			error_exit(t_tab_ab *data_tabs);
 int				is_full_numbers(char *arg);
 int				is_full_space(char *arg);
 int				is_double(t_tab_ab data_tab);
