@@ -56,5 +56,8 @@ t_bool	is_not_int(char *c_nb, int i_nb);
 t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab);
 void	init_data_sequence(t_data_sequence *data_seq, t_tab_ab data_tabs);
 void	copy_tab(t_data_sequence *data_seq);
+void	get_max(t_tab_ab *tabs);
+void	get_min(t_tab_ab *tabs);
+void	freezer(char **tab);
 
 #endif
