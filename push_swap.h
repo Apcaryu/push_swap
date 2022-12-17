@@ -59,5 +59,10 @@ void	copy_tab(t_data_sequence *data_seq);
 void	get_max(t_tab_ab *tabs);
 void	get_min(t_tab_ab *tabs);
 void	freezer(char **tab);
-
+t_bool	is_top_a(t_tab_ab data_tabs, unsigned int idx);
+t_bool	is_top_b(t_tab_ab data_tabs, unsigned int idx);
+unsigned int	set_dist_a(t_tab_ab data_tab, t_bool reverse_a, \
+							unsigned int idx);
+unsigned int	set_dist_b(t_tab_ab data_tab, t_bool reverse_b, \
+							unsigned int idx);
 #endif

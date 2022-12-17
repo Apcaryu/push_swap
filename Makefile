@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c swap.c init.c checker_args.c push.c rotate.c \
 		better_sequence.c all_in_a.c final_rotate.c \
 		numbers_moves.c special_three.c special_five.c \
-		utils_b_seq.c utils_init.c
+		utils_b_seq.c utils_init.c utils_nb_moves.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
 
