@@ -54,5 +54,7 @@ void	special_five(t_tab_ab *data_tabs);
 t_bool	is_sorted(t_tab_ab data_tabs);
 t_bool	is_not_int(char *c_nb, int i_nb);
 t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab);
+void	init_data_sequence(t_data_sequence *data_seq, t_tab_ab data_tabs);
+void	copy_tab(t_data_sequence *data_seq);
 
 #endif
