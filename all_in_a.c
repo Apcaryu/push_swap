@@ -12,39 +12,40 @@
 
 #include "push_swap.h"
 
-void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab) // TODO to many lines
+void	in_while_mm_ab(t_tab_ab data_tabs, t_min_max_ab *mm_ab, \
+						unsigned int s_idx, unsigned int idx)
+{
+	if (idx <= data_tabs.top_a)
+	{
+		if (data_tabs.tab[idx] < mm_ab->min_a && s_idx == 0)
+			mm_ab->min_a = data_tabs.tab[idx];
+		else if (data_tabs.tab[idx] > mm_ab->max_a && s_idx == 1)
+			mm_ab->max_a = data_tabs.tab[idx];
+	}
+	else if (data_tabs.top_a < idx)
+	{
+		if (data_tabs.tab[idx] < mm_ab->min_b && s_idx == 0)
+			mm_ab->min_b = data_tabs.tab[idx];
+		else if (data_tabs.tab[idx] > mm_ab->max_b && s_idx == 1)
+			mm_ab->max_b = data_tabs.tab[idx];
+	}
+}
+
+void	set_min_max(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 {
 	unsigned int	idx;
+	unsigned int	s_idx;
 
-	idx = 0;
-	while (idx < data_tabs.size)
+	s_idx = 0;
+	while (s_idx < 2)
 	{
-		if (idx <= data_tabs.top_a)
+		idx = 0;
+		while (idx < data_tabs.size)
 		{
-			if (data_tabs.tab[idx] < mm_ab->min_a)
-				mm_ab->min_a = data_tabs.tab[idx];
+			in_while_mm_ab(data_tabs, mm_ab, s_idx, idx);
+			idx++;
 		}
-		else if (data_tabs.top_a < idx)
-		{
-			if (data_tabs.tab[idx] < mm_ab->min_b)
-				mm_ab->min_b = data_tabs.tab[idx];
-		}
-		idx++;
-	}
-	idx = 0;
-	while (idx < data_tabs.size)
-	{
-		if (idx <= data_tabs.top_a)
-		{
-			if (data_tabs.tab[idx] > mm_ab->max_a)
-				mm_ab->max_a = data_tabs.tab[idx];
-		}
-		else if (data_tabs.top_a < idx)
-		{
-			if (data_tabs.tab[idx] > mm_ab->max_b)
-				mm_ab->max_b = data_tabs.tab[idx];
-		}
-		idx++;
+		s_idx++;
 	}
 }
 
@@ -69,7 +70,7 @@ t_bool	check_push_in_a(t_tab_ab data_tabs, t_min_max_ab *mm_ab)
 	return (false);
 }
 
-void	all_in_a(t_tab_ab *data_tabs) // TODO too many lines
+void	all_in_a(t_tab_ab *data_tabs)
 {
 	t_min_max_ab	mm_ab;
 	t_data_dist		data_dist;
@@ -94,8 +95,6 @@ void	all_in_a(t_tab_ab *data_tabs) // TODO too many lines
 			rotate(data_tabs, 'a', data_dist.reverse_a);
 		push(data_tabs, 'a');
 		set_min_max(*data_tabs, &mm_ab);
-		data_dist.dist = UINT_MAX;
-		data_dist.num = 0;
-		data_dist.idx = UINT_MAX;
+		init_data_dist(&data_dist);
 	}
 }
