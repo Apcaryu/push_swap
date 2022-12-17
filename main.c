@@ -51,18 +51,20 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 		exit(EXIT_SUCCESS);
-	if (is_full_numbers(argv[1]))
-		return (ft_printf("not only number list\n"));
-	if (is_full_space(argv[1]))
-		return (ft_printf("empty list\n"));
-	new_init_tab(&tabs, argv[1]);
-	if (tabs.tab == NULL)
-		return (0);
-	if (is_double(tabs))
+	else if (argc == 2)
 	{
+		if (is_full_numbers(argv[1]))
+			return (ft_printf("not only number list\n"));
+		if (is_full_space(argv[1]))
+			return (ft_printf("empty list\n"));
+		new_init_tab(&tabs, argv[1]);
+		if (tabs.tab == NULL)
+			return (0);
+		if (is_double(tabs)) {
+			free(tabs.tab);
+			return (ft_printf("double presence detected\n"));
+		}
+		exec(&tabs);
 		free(tabs.tab);
-		return (ft_printf("double presence detected\n"));
 	}
-	exec(&tabs);
-	free(tabs.tab);
 }
