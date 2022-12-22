@@ -6,7 +6,7 @@
 /*   By: apellegr <apellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 17:56:21 by apellegr          #+#    #+#             */
-/*   Updated: 2022/12/16 17:56:22 by apellegr         ###   ########.fr       */
+/*   Updated: 2022/12/22 13:14:50 by apellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	main(int argc, char *argv[])
 		new_init_tab(&tabs, argv[1]);
 		if (tabs.tab == NULL)
 			return (0);
-		if (is_double(tabs)) {
+		if (is_double(tabs))
+		{
 			free(tabs.tab);
 			error_exit(&tabs);
 		}
